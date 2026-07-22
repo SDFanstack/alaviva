@@ -1,2 +1,2 @@
-# alaviva
-Página dedicada al rescate de aves y maximizar sus posibilidades de supervivencia
+# AlaViva
+Guía para actuar de forma responsable cuando encuentres un ave silvestre.
