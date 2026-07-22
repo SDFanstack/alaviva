@@ -1,0 +1,157 @@
+/* =========================================================
+   AlaViva — Sistema de diseño compartido
+   Un único lugar para colores, tipografía y componentes.
+   Cualquier página nueva del sitio debe enlazar este archivo
+   en vez de duplicar estilos.
+   ========================================================= */
+
+:root {
+  --bg: #FAF7F0;
+  --bg-card: #FFFFFF;
+  --ink: #1F2A22;
+  --ink-soft: #4A5A4F;
+  --primary: #2F4A3D;
+  --primary-light: #3E6152;
+  --accent: #C98A3B;
+  --accent-soft: #F2E2C8;
+  --moss: #8FAE8B;
+  --moss-soft: #E4EDE2;
+  --line: #DFD9C8;
+  --urgent: #B4573F;
+  --urgent-soft: #F3DFD9;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: 'Fraunces', serif; color: var(--primary); line-height: 1.15; }
+.mono {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+a { color: inherit; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* Header */
+header.site { padding: 22px 0; border-bottom: 1px solid var(--line); }
+header.site .wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.logo { display: flex; align-items: center; gap: 10px; font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.35rem; color: var(--primary); text-decoration: none; }
+.logo svg { width: 28px; height: 28px; }
+nav.site-nav { display: flex; gap: 24px; flex-wrap: wrap; }
+nav.site-nav a { text-decoration: none; color: var(--ink-soft); font-size: 0.95rem; font-weight: 500; transition: color .15s; }
+nav.site-nav a:hover, nav.site-nav a:focus-visible { color: var(--primary); }
+nav.site-nav a[aria-current="page"] { color: var(--primary); font-weight: 700; }
+
+/* Page head genérico (para páginas internas) */
+.page-head { padding: 56px 0 40px; }
+.page-head p.eyebrow { color: var(--accent); font-weight: 600; margin-bottom: 12px; }
+.page-head h1 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); max-width: 26ch; margin-bottom: 14px; }
+.page-head p.lede { color: var(--ink-soft); max-width: 60ch; font-size: 1.02rem; }
+
+/* Botones */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  padding: 13px 26px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn:hover, .btn:focus-visible { background: #B67B2E; }
+.btn.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+}
+.btn.btn-outline:hover, .btn.btn-outline:focus-visible { background: var(--moss-soft); }
+.btn.btn-urgent { background: var(--urgent); }
+.btn.btn-urgent:hover, .btn.btn-urgent:focus-visible { background: #9A4530; }
+
+/* Tarjetas genéricas */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px;
+}
+
+/* Cajas de aviso (legal / sanitario / urgencia) */
+.aviso-box {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--urgent);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+.aviso-box .aviso-item .mono { color: var(--urgent); display: block; margin-bottom: 8px; }
+.aviso-box .aviso-item p { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.6; }
+.aviso-box .aviso-item strong { color: var(--ink); }
+@media (max-width: 700px) { .aviso-box { grid-template-columns: 1fr; } }
+
+/* Ficha de campo (componente insignia, usado en varias páginas) */
+.ficha {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  max-width: 640px;
+  overflow: hidden;
+  position: relative;
+}
+.ficha-tab {
+  position: absolute; top: 0; right: 28px;
+  background: var(--accent); color: #fff;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 0 0 6px 6px;
+}
+.ficha-body { padding: 32px; }
+.ficha-head { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px dashed var(--line); padding-bottom: 18px; margin-bottom: 18px; flex-wrap: wrap; gap: 10px; }
+.ficha-head h3 { font-size: 1.4rem; font-weight: 600; }
+.ficha-head .sci { font-style: italic; color: var(--ink-soft); font-size: 0.92rem; margin-top: 2px; }
+.ficha-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.tag {
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.04em;
+  background: var(--moss-soft); color: var(--primary); padding: 4px 9px; border-radius: 20px;
+}
+.tag.tag-urgent { background: var(--urgent-soft); color: var(--urgent); }
+.ficha-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px; }
+.ficha-field .mono { color: var(--ink-soft); margin-bottom: 4px; display: block; }
+.ficha-field .val { font-size: 0.95rem; color: var(--ink); }
+@media (max-width: 560px) { .ficha-grid { grid-template-columns: 1fr; } }
+
+/* Footer */
+footer.site { padding: 40px 0; border-top: 1px solid var(--line); }
+footer.site .wrap { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+footer.site .foot-row { display: flex; justify-content: space-between; width: 100%; flex-wrap: wrap; gap: 8px; }
+footer.site p { color: var(--ink-soft); font-size: 0.85rem; }
+footer.site .disclaimer { max-width: 70ch; font-size: 0.82rem; color: var(--ink-soft); margin-top: 10px; }
+
+/* Utilidades */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; left: -9999px; top: 0; background: var(--primary); color: #fff;
+  padding: 10px 16px; z-index: 100; border-radius: 0 0 8px 0;
+}
+.skip-link:focus { left: 0; }

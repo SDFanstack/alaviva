@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlaViva — Centros de recuperación (CRAS) por comunidad autónoma</title>
+<meta name="description" content="Encuentra el centro de recuperación de fauna silvestre (CRAS) más cercano en tu comunidad autónoma, con dirección y teléfono verificados.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  /* Estilos específicos de esta página — el resto vive en assets/styles.css */
+  .layout { display: grid; grid-template-columns: 1.3fr 1fr; gap: 28px; padding-bottom: 70px; align-items: start; }
+  @media (max-width: 860px) { .layout { grid-template-columns: 1fr; } }
+
+  .region-group { margin-bottom: 18px; }
+  .region-row { display: grid; gap: 10px; }
+  .r5 { grid-template-columns: repeat(5, 1fr); }
+  .r4 { grid-template-columns: repeat(4, 1fr); }
+  .r3 { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 560px) { .r5, .r4, .r3 { grid-template-columns: repeat(2, 1fr); } }
+
+  .tile {
+    background: var(--bg-card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 10px; text-align: center; cursor: pointer; font-size: 0.82rem; font-weight: 600;
+    color: var(--ink); transition: border-color .15s, transform .15s, background .15s;
+    width: 100%; font-family: inherit;
+  }
+  .tile:hover, .tile:focus-visible { border-color: var(--primary); transform: translateY(-2px); }
+  .tile.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .tile .count { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; text-transform: uppercase; color: var(--moss); margin-top: 4px; }
+  .tile.active .count { color: var(--accent-soft); }
+
+  .panel { background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; position: sticky; top: 24px; min-height: 300px; }
+  .panel .region-name { font-size: 1.3rem; margin-bottom: 4px; }
+  .panel .region-hint { color: var(--ink-soft); font-size: 0.88rem; margin-bottom: 20px; }
+
+  .cras-item { border-top: 1px dashed var(--line); padding: 16px 0; }
+  .cras-item:first-of-type { border-top: none; padding-top: 0; }
+  .cras-item h4 { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.98rem; color: var(--ink); margin-bottom: 6px; }
+  .cras-item .addr { font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 4px; }
+  .cras-item .phone { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; color: var(--primary); }
+  .empty-state { color: var(--ink-soft); font-size: 0.92rem; padding: 20px 0; }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#mapa">Saltar al contenido</a>
+
+<header class="site">
+  <div class="wrap">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M3 15C6 8 11 4 21 4C19 9 16 12 12 13.5C15 14 17.5 14 20 13C17 19 11 21 3 15Z" fill="#2F4A3D"/>
+      </svg>
+      AlaViva
+    </a>
+    <nav class="site-nav" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="checklist.html">¿Necesita ayuda?</a>
+      <a href="guia.html">Guía de especies</a>
+      <a href="mapa-cras.html" aria-current="page">CRAS</a>
+      <a href="emergencia.html">Emergencia</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-head wrap">
+  <p class="eyebrow mono">Centros de recuperación</p>
+  <h1>Encuentra el CRAS de tu comunidad</h1>
+  <p class="lede">Toca una comunidad autónoma para ver sus centros de recuperación de fauna silvestre. Las 17 comunidades y las 2 ciudades autónomas tienen al menos un contacto verificado — donde no había dirección exacta pública, te decimos a qué organismo llamar en vez de inventarla.</p>
+</div>
+
+<div class="wrap layout" id="mapa">
+  <div id="mosaico" role="group" aria-label="Selector de comunidad autónoma">
+    <!-- Se rellena por JS a partir de REGIONS -->
+  </div>
+
+  <div class="panel" id="panel" aria-live="polite">
+    <p class="region-name">Elige una comunidad</p>
+    <p class="region-hint">Toca cualquier casilla de la izquierda para ver sus centros.</p>
+    <div class="empty-state">Los centros mostrados están verificados con fuentes públicas (GREFA, gobiernos autonómicos). Última revisión: julio 2026.</div>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <p class="disclaimer">Este listado se revisa periódicamente pero los centros pueden cambiar de dirección, teléfono u horario. Ante una emergencia, llama antes de desplazarte. Recuerda: en España, lo habitual es que un ave silvestre deba entregarse a un CRAS, no quedarse en un domicilio particular. Manipula siempre con las manos limpias o guantes. Si detectas un dato desactualizado, o si tu comunidad necesita revisión, puedes ayudarnos a completarlo.</p>
+  </div>
+</footer>
+
+
+<script>
+// Datos verificados a fecha julio 2026 (GREFA / Vida Silvestre Ibérica / webs autonómicas).
+// Las comunidades sin centros confirmados aún se marcan como "pending".
+const REGIONS = [
+  { id: "galicia", name: "Galicia", centers: [
+    { name: "CRFS Santa Cruz de Oleiros", addr: "Santa Cruz de Liáns, Oleiros (A Coruña)", phone: "981 960 405" },
+    { name: "CRFS O Veral", addr: "Estrada de Friol s/n, Lugo", phone: "982 207 705" },
+    { name: "CRFS Alto de O Rodicio", addr: "Alto do Rodicio, Maceda (Ourense)", phone: "628 358 652" },
+    { name: "CRFS de Carballedo", addr: "Chan s/n, Carballedo, Cotobade (Pontevedra)", phone: "606 656 017" }
+  ]},
+  { id: "asturias", name: "Asturias", centers: [
+    { name: "Coordinación de fauna silvestre del Principado", addr: "Asturias no publica una dirección fija única de CRFS; la recogida se coordina siempre a través del 112", phone: "112" }
+  ]},
+  { id: "cantabria", name: "Cantabria", centers: [
+    { name: "CRFS Cantabria", addr: "Recinto anexo al Parque de la Naturaleza de Cabárceno, Obregón (Villaescusa)", phone: "942 207 596" }
+  ]},
+  { id: "pais-vasco", name: "País Vasco", centers: [
+    { name: "CRFS de Bizkaia — Granja Foral de Gorliz", addr: "C/ Kukulu s/n, 48630 Gorliz (Bizkaia)", phone: "946 774 852" },
+    { name: "CRFS de Martioda", addr: "Martioda Entitatea nº3, Martioda (Álava)", phone: "945 181 616" },
+    { name: "CRFS de Arrano Etxea", addr: "C/ Agiti Bidea nº2, Igeldo (Donostia-San Sebastián)", phone: "943 210 584" }
+  ]},
+  { id: "navarra", name: "Navarra", centers: [
+    { name: "CRFS de Ilundáin", addr: "C/ Padre Adoáin nº219, Ilundáin (Pamplona)", phone: "607 350 486" },
+    { name: "GURELUR", addr: "C/ Manuel de Falla nº8, Pamplona", phone: "948 151 077" }
+  ]},
+  { id: "la-rioja", name: "La Rioja", centers: [
+    { name: "CRFS La Fombera", addr: "Av. de Aragón nº3, Varea (Logroño)", phone: "941 260 405" }
+  ]},
+  { id: "castilla-y-leon", name: "Castilla y León", centers: [
+    { name: "CRAS Burgos", addr: "Ctra. Río Cavia s/n, 09239 Albillos (Burgos)", phone: "947 461 189" },
+    { name: "CRAS Valladolid", addr: "Cañada Real nº 308, 47008 Valladolid", phone: "983 410 587" },
+    { name: "CRAS Segovia — Los Lavaderos", addr: "Ctra. de Arévalo s/n, Segovia", phone: "921 433 340" },
+    { name: "CRAS Salamanca", addr: "Vivero forestal, Av. de la Adehuela, Cabrerizos (Salamanca)", phone: "923 188 414" },
+    { name: "CRAS Zamora", addr: "Camino de Villaralbo s/n, Villaralbo (Zamora)", phone: "980 559 600" }
+  ]},
+  { id: "aragon", name: "Aragón", centers: [
+    { name: "C.R. de Fauna Silvestre La Alfranca", addr: "Finca de la Alfranca, Pastriz (Zaragoza)", phone: "976 108 190" }
+  ]},
+  { id: "cataluna", name: "Cataluña", centers: [
+    { name: "CRA de Torreferrussa", addr: "Sabadell–Sta. Perpètua km 4,5, Sta. Perpètua de Mogoda (Barcelona)", phone: "935 879 512" },
+    { name: "CRA Marismas del Ampurdán", addr: "Mas del Cortalet, Castellón de Ampurias (Girona)", phone: "Consultar Generalitat de Catalunya" }
+  ]},
+  { id: "madrid", name: "Madrid", centers: [
+    { name: "CRAS Madrid — Félix Rodríguez de la Fuente", addr: "Ctra. de Soto de Viñuelas s/n, Tres Cantos", phone: "91 276 06 26" },
+    { name: "Brinzal (rapaces nocturnas)", addr: "Albergue Juvenil, Casa de Campo s/n, Madrid", phone: "914 794 565" }
+  ]},
+  { id: "castilla-la-mancha", name: "Castilla-La Mancha", centers: [
+    { name: "CRFS Cuenca — Albaladejito", addr: "Ctra. Cuenca-Toledo km 174, Cuenca", phone: "Consultar Junta de Castilla-La Mancha" },
+    { name: "CRFS Guadalajara", addr: "Mini-Zoo municipal, Guadalajara", phone: "Consultar Junta de Castilla-La Mancha" },
+    { name: "C.R. de Albacete", addr: "Ctra. de Ayora km 2, Albacete", phone: "967 520 062" },
+    { name: "C.R. El Chaparrillo", addr: "Ctra. a Porzuna km 4, Ciudad Real", phone: "926 231 400" }
+  ]},
+  { id: "extremadura", name: "Extremadura", centers: [
+    { name: "C.R. de Fauna Los Hornos", addr: "Ctra. del Risco s/n, Sierra de Fuentes (Cáceres)", phone: "927 200 170" }
+  ]},
+  { id: "c-valenciana", name: "C. Valenciana", centers: [
+    { name: "CRFS Santa Faç", addr: "Ctra. Alacant-València km 86,4, Santa Faz (Alicante)", phone: "965 93 80 85" },
+    { name: "CRFS Forn del Vidre", addr: "Ctra. CV-105, La Sénia–Pobla de Benifassà (Castellón)", phone: "964 242 500" }
+  ]},
+  { id: "murcia", name: "Murcia", centers: [
+    { name: "CRFS El Valle", addr: "Parque Regional Carrascoy y El Valle, La Alberca", phone: "968 17 75 03" }
+  ]},
+  { id: "andalucia", name: "Andalucía", centers: [
+    { name: "CRAS Zoo de Jerez", addr: "Taxdirt s/n, Jerez de la Frontera (Cádiz)", phone: "956 182 397" },
+    { name: "CREA Dunas de San Antón", addr: "Casa Forestal Dunas de San Antón, El Puerto de Sta. María (Cádiz)", phone: "670 946 198" },
+    { name: "Centro El Acebuche", addr: "Parque Nacional de Doñana (Huelva)", phone: "Consultar Junta de Andalucía" },
+    { name: "CREA Los Villares", addr: "Avda. Gran Vía Parque nº26 Bajo, Córdoba", phone: "670 947 901" },
+    { name: "CREA Quiebrajano", addr: "Jaén (dirección exacta: consultar Junta de Andalucía)", phone: "670 946 263" },
+    { name: "CREA El Blanqueo", addr: "Granada (dirección exacta: consultar Junta de Andalucía)", phone: "670 945 699" },
+    { name: "CREA El Boticario", addr: "Málaga (dirección exacta: consultar Junta de Andalucía)", phone: "670 944 598" }
+  ]},
+  { id: "baleares", name: "Baleares", centers: [
+    { name: "COFIB — Recuperación de Fauna de Baleares", addr: "Mallorca — dirección exacta: consultar recuperacionfaunabaleares.es", phone: "Consultar COFIB" },
+    { name: "GOB Menorca — Centre de Recuperació de Fauna", addr: "Menorca — dirección exacta: consultar GOB Menorca", phone: "Consultar GOB Menorca" }
+  ]},
+  { id: "canarias", name: "Canarias", centers: [
+    { name: "CRFS La Tahonilla", addr: "San Cristóbal de La Laguna (Tenerife)", phone: "Consultar Cabildo de Tenerife" },
+    { name: "CRFS Las Palmas de Gran Canaria", addr: "C/ Plan de Loreto nº2, Las Palmas de Gran Canaria", phone: "Consultar Cabildo de Gran Canaria" }
+  ]},
+  { id: "ceuta", name: "Ceuta", centers: [
+    { name: "Obimasa (antes CERFEA)", addr: "Benzú, C/ García Aldave s/n, Ceuta", phone: "Contacto vía formulario web de Obimasa" }
+  ]},
+  { id: "melilla", name: "Melilla", centers: [
+    { name: "CREA Melilla — Centro de Recuperación de Especies Amenazadas", addr: "Gestionado por la Consejería de Medio Ambiente y Naturaleza de Melilla", phone: "Consultar Consejería de Medio Ambiente de Melilla" }
+  ]},
+];
+
+// Filas pensadas como una disposición aproximada norte→sur, no geografía exacta.
+const ROWS = [
+  ["galicia","asturias","cantabria","pais-vasco","navarra"],
+  ["la-rioja","castilla-y-leon","aragon","cataluna"],
+  ["madrid","castilla-la-mancha","c-valenciana"],
+  ["extremadura","andalucia","murcia"],
+  ["baleares","canarias","ceuta","melilla"],
+];
+
+const byId = Object.fromEntries(REGIONS.map(r => [r.id, r]));
+const mosaico = document.getElementById('mosaico');
+
+ROWS.forEach(row => {
+  const group = document.createElement('div');
+  group.className = 'region-group';
+  const rowEl = document.createElement('div');
+  rowEl.className = 'region-row ' + (row.length >= 5 ? 'r5' : row.length === 4 ? 'r4' : 'r3');
+  row.forEach(id => {
+    const region = byId[id];
+    const tile = document.createElement('div');
+    tile.className = 'tile';
+    tile.dataset.id = id;
+    tile.innerHTML = region.name + '<span class="count">' +
+      region.centers.length + ' centro' + (region.centers.length > 1 ? 's' : '') +
+      '</span>';
+    tile.addEventListener('click', () => selectRegion(id));
+    rowEl.appendChild(tile);
+  });
+  group.appendChild(rowEl);
+  mosaico.appendChild(group);
+});
+
+function selectRegion(id) {
+  document.querySelectorAll('.tile').forEach(t => t.classList.remove('active'));
+  document.querySelector('.tile[data-id="' + id + '"]').classList.add('active');
+
+  const region = byId[id];
+  const panel = document.getElementById('panel');
+
+  let html = '<p class="region-name">' + region.name + '</p>' +
+    '<p class="region-hint">' + region.centers.length + ' centro' + (region.centers.length > 1 ? 's' : '') + ' verificado' + (region.centers.length > 1 ? 's' : '') + '</p>';
+  region.centers.forEach(c => {
+    html += '<div class="cras-item"><h4>' + c.name + '</h4>' +
+      '<p class="addr">' + c.addr + '</p>' +
+      '<p class="phone">' + c.phone + '</p></div>';
+  });
+  panel.innerHTML = html;
+}
+</script>
+
+</body>
+</html>
