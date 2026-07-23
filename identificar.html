@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlaViva — Identificar por foto</title>
+<meta name="description" content="Sube una foto del ave y te ayudamos a reducir los candidatos de especie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .upload-zone {
+    border: 2px dashed var(--line); border-radius: var(--radius); padding: 48px 24px;
+    text-align: center; cursor: pointer; background: var(--bg-card); transition: border-color .15s;
+  }
+  .upload-zone:hover, .upload-zone.drag { border-color: var(--accent); }
+  .upload-zone input { display: none; }
+  .upload-zone p { color: var(--ink-soft); margin-top: 10px; }
+  #preview { max-width: 100%; max-height: 320px; border-radius: 10px; margin-top: 20px; display: none; }
+
+  .status-box { margin: 24px 0; padding: 16px 18px; border-radius: 10px; font-size: 0.92rem; display: none; }
+  .status-box.loading { background: var(--moss-soft); color: var(--primary); display: block; }
+  .status-box.error { background: var(--urgent-soft); color: #7A3325; display: block; }
+
+  .candidato { background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .candidato h3 { font-size: 1.1rem; margin-bottom: 4px; }
+  .candidato p { color: var(--ink-soft); font-size: 0.88rem; }
+  .confianza { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
+  .confianza.alta { background: var(--moss-soft); color: var(--primary); }
+  .confianza.media { background: var(--accent-soft); color: var(--accent); }
+  .confianza.baja { background: var(--urgent-soft); color: var(--urgent); }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="site"><div class="wrap">
+  <a href="index.html" class="logo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 15C6 8 11 4 21 4C19 9 16 12 12 13.5C15 14 17.5 14 20 13C17 19 11 21 3 15Z" fill="#2F4A3D"/></svg>AlaViva</a>
+  <nav class="site-nav" aria-label="Navegación principal">
+    <a href="index.html">Inicio</a><a href="checklist.html">¿Necesita ayuda?</a><a href="identificar.html" aria-current="page">Identificar</a>
+    <a href="guia.html">Guía de especies</a><a href="mapa-cras.html">CRAS</a><a href="emergencia.html">Emergencia</a><a href="chat.html">Chat</a>
+  </nav>
+</div></header>
+
+<div class="page-head wrap">
+  <p class="eyebrow mono">Identificación por foto</p>
+  <h1>Sube una foto del ave</h1>
+  <p class="lede">Fondo simple y luz natural si puedes. Te damos 1-3 candidatos, nunca una única certeza — si hay duda real, te lo decimos.</p>
+</div>
+
+<main class="wrap" id="contenido" style="max-width:700px; padding-bottom:80px;">
+  <label class="upload-zone" id="dropZone">
+    <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp">
+    <div id="uploadPrompt">
+      <strong>Toca para elegir una foto</strong>
+      <p>o arrástrala aquí — JPEG, PNG o WebP, máx. 6 MB</p>
+    </div>
+    <img id="preview" alt="Vista previa de la foto subida">
+  </label>
+
+  <div style="text-align:center; margin-top:20px;">
+    <button id="analyzeBtn" class="btn" disabled>Identificar ave</button>
+  </div>
+
+  <div class="status-box" id="statusBox" role="status"></div>
+  <div id="results"></div>
+</main>
+
+<footer class="site"><div class="wrap">
+  <div class="foot-row"><p class="mono">AlaViva</p><p>Identificación orientativa, no infalible</p></div>
+  <p class="disclaimer">La identificación por IA es una ayuda, no una certeza absoluta. Confirma siempre con la ficha completa y, ante cualquier duda sobre el manejo, contacta con tu CRAS.</p>
+</div></footer>
+
+<script>
+// Sustituye esto por la URL de tu Worker desplegado (ver worker/README.md)
+const WORKER_URL = 'https://alaviva-api.sdfanstack.workers.dev';
+
+const fileInput = document.getElementById('fileInput');
+const dropZone = document.getElementById('dropZone');
+const preview = document.getElementById('preview');
+const uploadPrompt = document.getElementById('uploadPrompt');
+const analyzeBtn = document.getElementById('analyzeBtn');
+const statusBox = document.getElementById('statusBox');
+const results = document.getElementById('results');
+let selectedFile = null;
+
+fileInput.addEventListener('change', () => handleFile(fileInput.files[0]));
+['dragover', 'dragleave', 'drop'].forEach(evt => {
+  dropZone.addEventListener(evt, e => {
+    e.preventDefault();
+    dropZone.classList.toggle('drag', evt === 'dragover');
+    if (evt === 'drop' && e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+  });
+});
+
+function handleFile(file) {
+  if (!file) return;
+  if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type)) {
+    showStatus('error', 'Formato no soportado. Usa JPEG, PNG o WebP.');
+    return;
+  }
+  if (file.size > 6 * 1024 * 1024) {
+    showStatus('error', 'La imagen pesa demasiado (máx. 6 MB).');
+    return;
+  }
+  selectedFile = file;
+  const reader = new FileReader();
+  reader.onload = e => {
+    preview.src = e.target.result;
+    preview.style.display = 'block';
+    uploadPrompt.style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+  analyzeBtn.disabled = false;
+  statusBox.style.display = 'none';
+  results.innerHTML = '';
+}
+
+function showStatus(type, msg) {
+  statusBox.className = 'status-box ' + type;
+  statusBox.textContent = msg;
+}
+
+analyzeBtn.addEventListener('click', async () => {
+  if (!selectedFile) return;
+  analyzeBtn.disabled = true;
+  showStatus('loading', 'Analizando la foto...');
+  results.innerHTML = '';
+
+  try {
+    const base64 = await fileToBase64(selectedFile);
+    const res = await fetch(WORKER_URL + '/api/identify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ image_base64: base64, mime_type: selectedFile.type })
+    });
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error || ('Error ' + res.status));
+    }
+
+    const data = await res.json();
+    statusBox.style.display = 'none';
+
+    if (data.aviso) showStatus('loading', data.aviso);
+    if (!data.candidatos || data.candidatos.length === 0) {
+      results.innerHTML = '<p style="color:var(--ink-soft);">No se pudo identificar con confianza suficiente. Prueba con la <a href="guia.html">guía manual de especies</a>.</p>';
+    } else {
+      results.innerHTML = data.candidatos.map(c => `
+        <div class="candidato">
+          <div>
+            <h3>${c.id.replace(/-/g, ' ')}</h3>
+            <p>${c.razon || ''}</p>
+          </div>
+          <div style="display:flex; gap:10px; align-items:center;">
+            <span class="confianza ${c.confianza}">${c.confianza}</span>
+            <a href="guia.html?especie=${c.id}" class="btn btn-outline">Ver ficha</a>
+          </div>
+        </div>
+      `).join('');
+    }
+  } catch (err) {
+    showStatus('error', 'No se pudo completar la identificación: ' + err.message + '. Si el problema persiste, usa la guía manual.');
+  } finally {
+    analyzeBtn.disabled = false;
+  }
+});
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result.split(',')[1]);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+</script>
+</body>
+</html>
