@@ -64,10 +64,26 @@ const chatForm = document.getElementById('chatForm');
 const chatInput = document.getElementById('chatInput');
 let history = [];
 
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+// Markdown "ligero" y seguro: escapa TODO primero, y solo después
+// interpreta **negrita** y saltos de línea. Nunca permite HTML real
+// que venga del texto del modelo o del usuario.
+function renderTextoSeguro(str) {
+  let safe = escapeHtml(str);
+  safe = safe.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  safe = safe.replace(/\n/g, '<br>');
+  return safe;
+}
+
 function addMessage(role, text) {
   const div = document.createElement('div');
   div.className = 'msg ' + role;
-  div.textContent = text;
+  div.innerHTML = renderTextoSeguro(text);
   chatLog.appendChild(div);
   chatLog.scrollTop = chatLog.scrollHeight;
 }
