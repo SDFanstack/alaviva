@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlaViva — Chat</title>
+<meta name="description" content="Resuelve dudas de seguimiento sobre el ave que estás cuidando.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .chat-wrap { max-width: 680px; padding-bottom: 40px; }
+  .chat-log { background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; min-height: 380px; max-height: 55vh; overflow-y: auto; margin-bottom: 14px; }
+  .msg { max-width: 80%; padding: 10px 14px; border-radius: 12px; margin-bottom: 10px; font-size: 0.92rem; line-height: 1.5; }
+  .msg.user { background: var(--moss-soft); color: var(--primary); margin-left: auto; }
+  .msg.assistant { background: var(--bg); border: 1px solid var(--line); color: var(--ink); }
+  .msg.system { background: var(--urgent-soft); color: #7A3325; margin: 0 auto 10px; text-align: center; max-width: 100%; font-size: 0.85rem; }
+
+  .chat-input-row { display: flex; gap: 10px; }
+  .chat-input-row input { flex: 1; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; font-family: inherit; font-size: 0.95rem; }
+  .chat-input-row input:focus-visible { outline: 2px solid var(--accent); }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="site"><div class="wrap">
+  <a href="index.html" class="logo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 15C6 8 11 4 21 4C19 9 16 12 12 13.5C15 14 17.5 14 20 13C17 19 11 21 3 15Z" fill="#2F4A3D"/></svg>AlaViva</a>
+  <nav class="site-nav" aria-label="Navegación principal">
+    <a href="index.html">Inicio</a><a href="checklist.html">¿Necesita ayuda?</a><a href="identificar.html">Identificar</a>
+    <a href="guia.html">Guía de especies</a><a href="mapa-cras.html">CRAS</a><a href="emergencia.html">Emergencia</a><a href="chat.html" aria-current="page">Chat</a>
+  </nav>
+</div></header>
+
+<div class="page-head wrap">
+  <p class="eyebrow mono">Chat de seguimiento</p>
+  <h1>¿Dudas sobre tu caso?</h1>
+  <p class="lede">Ámbito estricto: identificación, primeros auxilios y derivación a CRAS. Ante heridas graves, la respuesta siempre va a ser: contacta con tu centro de recuperación.</p>
+</div>
+
+<main class="wrap chat-wrap" id="contenido">
+  <div class="chat-log" id="chatLog" aria-live="polite"></div>
+  <form class="chat-input-row" id="chatForm">
+    <label for="chatInput" class="sr-only">Escribe tu mensaje</label>
+    <input type="text" id="chatInput" placeholder="Escribe tu pregunta..." maxlength="1000" autocomplete="off">
+    <button type="submit" class="btn">Enviar</button>
+  </form>
+</main>
+
+<footer class="site"><div class="wrap">
+  <div class="foot-row"><p class="mono">AlaViva</p><p>El chat no sustituye a un profesional</p></div>
+  <p class="disclaimer">Este chat ofrece orientación general, no diagnóstico veterinario. Ante heridas graves o dudas serias, contacta directamente con tu CRAS.</p>
+</div></footer>
+
+<script>
+// Sustituye esto por la URL de tu Worker desplegado (ver worker/README.md)
+const WORKER_URL = 'https://alaviva-api.TU-USUARIO.workers.dev';
+
+const params = new URLSearchParams(window.location.search);
+const especieId = params.get('especie') || null;
+
+const chatLog = document.getElementById('chatLog');
+const chatForm = document.getElementById('chatForm');
+const chatInput = document.getElementById('chatInput');
+let history = [];
+
+function addMessage(role, text) {
+  const div = document.createElement('div');
+  div.className = 'msg ' + role;
+  div.textContent = text;
+  chatLog.appendChild(div);
+  chatLog.scrollTop = chatLog.scrollHeight;
+}
+
+addMessage('assistant', especieId
+  ? 'Hola. Veo que vienes desde la ficha de "' + especieId.replace(/-/g, ' ') + '" — cuéntame tu duda.'
+  : 'Hola, soy el asistente de AlaViva. Pregúntame sobre primeros auxilios, alimentación de urgencia o cómo identificar el ave.');
+
+chatForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const text = chatInput.value.trim();
+  if (!text) return;
+
+  addMessage('user', text);
+  history.push({ role: 'user', text });
+  chatInput.value = '';
+  chatInput.disabled = true;
+
+  try {
+    const res = await fetch(WORKER_URL + '/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text, history, especie_id: especieId })
+    });
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error || ('Error ' + res.status));
+    }
+
+    const data = await res.json();
+    addMessage('assistant', data.reply);
+    history.push({ role: 'assistant', text: data.reply });
+  } catch (err) {
+    addMessage('system', 'No se pudo conectar con el chat: ' + err.message + '. Mientras tanto, revisa la guía de especies o los primeros auxilios.');
+  } finally {
+    chatInput.disabled = false;
+    chatInput.focus();
+  }
+});
+</script>
+</body>
+</html>

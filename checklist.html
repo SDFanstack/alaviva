@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlaViva — ¿De verdad necesita ayuda?</title>
+<meta name="description" content="Antes de intervenir: comprueba si el ave que has encontrado realmente necesita tu ayuda o si sus padres siguen cuidándola.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .quiz-wrap { max-width: 680px; margin: 0 auto; padding-bottom: 80px; }
+  .progress { display: flex; gap: 6px; margin-bottom: 32px; }
+  .progress span { height: 4px; flex: 1; background: var(--line); border-radius: 2px; }
+  .progress span.done { background: var(--accent); }
+
+  .q-step { display: none; }
+  .q-step.active { display: block; }
+  .q-step h2 { font-size: 1.5rem; margin-bottom: 10px; }
+  .q-step .q-help { color: var(--ink-soft); margin-bottom: 26px; font-size: 0.95rem; }
+
+  .q-options { display: grid; gap: 12px; }
+  .q-option {
+    background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 18px 22px; text-align: left; cursor: pointer; font-family: inherit; font-size: 1rem;
+    color: var(--ink); transition: border-color .15s, transform .15s;
+  }
+  .q-option:hover, .q-option:focus-visible { border-color: var(--primary); transform: translateX(2px); }
+
+  .result-box { text-align: center; padding: 20px 0; }
+  .result-icon { font-size: 2.4rem; margin-bottom: 6px; }
+  .result-box.ok { color: var(--primary); }
+  .result-box.warn { color: var(--urgent); }
+  .result-title { font-size: 1.6rem; margin-bottom: 14px; }
+  .result-body { color: var(--ink-soft); font-size: 1rem; max-width: 52ch; margin: 0 auto 28px; line-height: 1.65; }
+  .result-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  .restart { margin-top: 40px; text-align: center; }
+  .restart button {
+    background: none; border: none; color: var(--ink-soft); font-family: inherit;
+    text-decoration: underline; cursor: pointer; font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#quiz">Saltar al contenido</a>
+
+<header class="site">
+  <div class="wrap">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M3 15C6 8 11 4 21 4C19 9 16 12 12 13.5C15 14 17.5 14 20 13C17 19 11 21 3 15Z" fill="#2F4A3D"/>
+      </svg>
+      AlaViva
+    </a>
+    <nav class="site-nav" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="checklist.html" aria-current="page">¿Necesita ayuda?</a>
+      <a href="identificar.html">Identificar</a>
+      <a href="guia.html">Guía de especies</a>
+      <a href="mapa-cras.html">CRAS</a>
+      <a href="emergencia.html">Emergencia</a>
+      <a href="chat.html">Chat</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-head wrap">
+  <p class="eyebrow mono">Antes de intervenir</p>
+  <h1>¿De verdad necesita tu ayuda?</h1>
+  <p class="lede">La causa más frecuente de "rescates" innecesarios es recoger un ave que en realidad está bien — sus padres pueden seguir alimentándola en el suelo. Cuatro preguntas y lo sabrás.</p>
+</div>
+
+<main class="wrap quiz-wrap" id="quiz">
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <div class="q-step active" data-step="0">
+    <h2>¿Tiene plumas ya, aunque sean cortas, o solo plumón (pelusa)?</h2>
+    <p class="q-help">Mira sobre todo las alas y la cola.</p>
+    <div class="q-options">
+      <button class="q-option" data-answer="plumon">Solo plumón, casi sin plumas — parece recién salido del huevo</button>
+      <button class="q-option" data-answer="plumas">Ya tiene plumas visibles, aunque no vuele bien todavía</button>
+    </div>
+  </div>
+
+  <div class="q-step" data-step="1">
+    <h2>¿Puedes ver el nido cerca, a poca altura?</h2>
+    <p class="q-help">Mira en árboles, aleros o huecos a menos de 5 metros.</p>
+    <div class="q-options">
+      <button class="q-option" data-answer="si">Sí, veo el nido y es accesible</button>
+      <button class="q-option" data-answer="no">No veo ningún nido cerca</button>
+    </div>
+  </div>
+
+  <div class="q-step" data-step="2">
+    <h2>¿Salta, aletea o se mueve con soltura por el suelo?</h2>
+    <p class="q-help">Un volantón sano se desplaza a saltos, aunque no vuele todavía.</p>
+    <div class="q-options">
+      <button class="q-option" data-answer="si">Sí, salta y se mueve con energía</button>
+      <button class="q-option" data-answer="no">No, apenas se mueve o está muy quieto</button>
+    </div>
+  </div>
+
+  <div class="q-step" data-step="3">
+    <h2>¿Ves sangre, un ala en posición anormal, o algún animal (gato, perro) cerca?</h2>
+    <p class="q-help">Esto cambia la respuesta sin importar lo anterior.</p>
+    <div class="q-options">
+      <button class="q-option" data-answer="si">Sí, hay algún peligro o herida visible</button>
+      <button class="q-option" data-answer="no">No, no veo nada de eso</button>
+    </div>
+  </div>
+
+  <div class="q-step" data-step="result">
+    <div class="result-box" id="resultBox">
+      <!-- Rellenado por JS -->
+    </div>
+  </div>
+
+  <div class="restart">
+    <button id="restartBtn" type="button">Volver a empezar</button>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-row">
+      <p class="mono">AlaViva</p>
+      <p>Hecho para ayudar a la fauna silvestre local</p>
+    </div>
+    <p class="disclaimer">Este checklist orienta con los casos más comunes, no cubre absolutamente todas las situaciones. Ante cualquier duda seria, contactar con un CRAS es siempre la opción más segura.</p>
+  </div>
+</footer>
+
+<script>
+/*
+ * Lógica de decisión (simplificada, basada en criterios estándar de rehabilitación de fauna):
+ *
+ * - Si hay peligro/herida visible (pregunta 4 = sí) → SIEMPRE intervenir, sin importar el resto.
+ * - Si es solo plumón (nidícola, no debería estar fuera del nido):
+ *     - Si se ve el nido accesible → devolver al nido (no es "intervenir", es la mejor opción).
+ *     - Si no se ve el nido → intervenir (no puede sobrevivir solo en el suelo).
+ * - Si ya tiene plumas (probable volantón/nidífugo en fase de aprendizaje de vuelo):
+ *     - Si se mueve con soltura → NO intervenir, vigilar a distancia, los padres suelen seguir alimentándolo.
+ *     - Si apenas se mueve → intervenir, algo no va bien.
+ */
+const answers = {};
+let currentStep = 0;
+const steps = ["0", "1", "2", "3"];
+
+function updateProgress() {
+  const progress = document.getElementById('progress');
+  progress.innerHTML = '';
+  steps.forEach((s, i) => {
+    const bar = document.createElement('span');
+    if (i < currentStep) bar.classList.add('done');
+    progress.appendChild(bar);
+  });
+}
+
+function showStep(step) {
+  document.querySelectorAll('.q-step').forEach(el => el.classList.remove('active'));
+  document.querySelector('.q-step[data-step="' + step + '"]').classList.add('active');
+}
+
+document.querySelectorAll('.q-option').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const step = steps[currentStep];
+    answers[step] = btn.dataset.answer;
+
+    // La pregunta de peligro (paso 3) manda siempre, sin importar el resto
+    if (step === "3" && btn.dataset.answer === "si") {
+      showResult("intervenir", "Hay un riesgo inmediato — actúa ya");
+      return;
+    }
+
+    currentStep++;
+    if (currentStep < steps.length) {
+      updateProgress();
+      showStep(steps[currentStep]);
+    } else {
+      resolveResult();
+    }
+  });
+});
+
+function resolveResult() {
+  if (answers["0"] === "plumon") {
+    if (answers["1"] === "si") {
+      showResult("nido", "Devuélvelo al nido si puedes hacerlo con seguridad");
+    } else {
+      showResult("intervenir", "No puede sobrevivir solo — necesita tu ayuda");
+    }
+  } else {
+    if (answers["2"] === "si") {
+      showResult("vigilar", "Probablemente no necesita tu ayuda");
+    } else {
+      showResult("intervenir", "Algo no va bien — necesita tu ayuda");
+    }
+  }
+}
+
+function showResult(type, title) {
+  updateProgress();
+  showStep("result");
+  const box = document.getElementById('resultBox');
+
+  const content = {
+    vigilar: {
+      cls: "ok",
+      icon: "🌿",
+      body: "Los volantones pasan varios días en el suelo aprendiendo a volar mientras sus padres los siguen alimentando desde cerca. Retírate al menos 10 metros y observa 30-60 minutos sin intervenir. Si tienes un gato, mantenlo dentro mientras tanto. Si tras ese tiempo sigue igual, sin comer y sin que ningún adulto se acerque, vuelve a hacer este checklist.",
+      actions: '<a href="index.html" class="btn btn-outline">Volver al inicio</a>'
+    },
+    nido: {
+      cls: "ok",
+      icon: "🪺",
+      body: "Con las manos limpias o guantes, colócalo de nuevo en el nido con cuidado. Es un mito que el olor humano haga que los padres lo abandonen. Si el nido se ha caído entero, puedes fijar una cestita pequeña con agujeros de drenaje en el mismo árbol, lo más cerca posible del sitio original.",
+      actions: '<a href="guia.html" class="btn btn-outline">Ver guía de especies</a>'
+    },
+    intervenir: {
+      cls: "warn",
+      icon: "⚠️",
+      body: "Este caso sí necesita tu ayuda. Ve al protocolo de primeros auxilios: cómo sujetarlo, en qué guardarlo mientras lo trasladas, y qué NO hacer en las primeras horas.",
+      actions: '<a href="emergencia.html" class="btn btn-urgent">Ir a primeros auxilios</a> <a href="guia.html" class="btn btn-outline">Identificar la especie</a>'
+    }
+  };
+
+  const c = content[type];
+  box.className = "result-box " + c.cls;
+  box.innerHTML =
+    '<div class="result-icon" aria-hidden="true">' + c.icon + '</div>' +
+    '<h2 class="result-title">' + title + '</h2>' +
+    '<p class="result-body">' + c.body + '</p>' +
+    '<div class="result-actions">' + c.actions + '</div>';
+}
+
+document.getElementById('restartBtn').addEventListener('click', () => {
+  currentStep = 0;
+  for (const k in answers) delete answers[k];
+  updateProgress();
+  showStep("0");
+});
+
+updateProgress();
+</script>
+
+</body>
+</html>
