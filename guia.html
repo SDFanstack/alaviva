@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlaViva — Guía de especies</title>
+<meta name="description" content="Fichas completas de las aves más habituales encontradas caídas o heridas en España: papilla, medidas, identificación y cuándo derivar a un CRAS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .layout { display: grid; grid-template-columns: 280px 1fr; gap: 32px; padding-bottom: 80px; align-items: start; }
+  @media (max-width: 860px) { .layout { grid-template-columns: 1fr; } }
+
+  .search-box {
+    width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px;
+    font-family: inherit; font-size: 0.95rem; margin-bottom: 16px; background: var(--bg-card); color: var(--ink);
+  }
+  .search-box:focus-visible { outline: 2px solid var(--accent); }
+
+  .species-list { list-style: none; display: grid; gap: 8px; max-height: 70vh; overflow-y: auto; }
+  .species-list button {
+    width: 100%; text-align: left; background: var(--bg-card); border: 1px solid var(--line);
+    border-radius: 10px; padding: 12px 14px; cursor: pointer; font-family: inherit; color: var(--ink);
+  }
+  .species-list button:hover, .species-list button:focus-visible { border-color: var(--primary); }
+  .species-list button.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .species-list button .sp-name { font-weight: 600; font-size: 0.92rem; display: block; }
+  .species-list button .sp-sci { font-style: italic; font-size: 0.78rem; opacity: 0.75; }
+
+  .detail-panel { min-height: 400px; }
+  .detail-empty { color: var(--ink-soft); padding: 60px 20px; text-align: center; }
+
+  .field-block { margin-top: 22px; }
+  .field-block h4 { font-size: 0.98rem; margin-bottom: 8px; color: var(--ink); font-family: 'Inter', sans-serif; }
+  .field-block p { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.6; }
+  .field-block.warn { background: var(--urgent-soft); border-radius: 10px; padding: 16px 18px; }
+  .field-block.warn h4 { color: var(--urgent); }
+  .field-block.warn p { color: #7A3325; }
+
+  .meta-note {
+    background: var(--moss-soft); border-radius: 10px; padding: 16px 18px; margin-bottom: 24px;
+    font-size: 0.88rem; color: var(--primary);
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<header class="site">
+  <div class="wrap">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M3 15C6 8 11 4 21 4C19 9 16 12 12 13.5C15 14 17.5 14 20 13C17 19 11 21 3 15Z" fill="#2F4A3D"/>
+      </svg>
+      AlaViva
+    </a>
+    <nav class="site-nav" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="checklist.html">¿Necesita ayuda?</a>
+      <a href="identificar.html">Identificar</a>
+      <a href="guia.html" aria-current="page">Guía de especies</a>
+      <a href="mapa-cras.html">CRAS</a>
+      <a href="emergencia.html">Emergencia</a>
+      <a href="chat.html">Chat</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-head wrap">
+  <p class="eyebrow mono">Guía de especies</p>
+  <h1>Identifica y consulta la ficha</h1>
+  <p class="lede">15 especies habituales en España, con datos verificados. Busca por nombre o elige de la lista — la identificación automática por foto llegará más adelante.</p>
+</div>
+
+<main class="wrap layout" id="contenido">
+  <div>
+    <label for="searchInput" class="sr-only">Buscar especie</label>
+    <input type="search" id="searchInput" class="search-box" placeholder="Buscar por nombre...">
+    <ul class="species-list" id="speciesList" aria-label="Lista de especies"></ul>
+  </div>
+
+  <span id="detailAnchor" style="display:none" aria-hidden="true"></span>
+  <div class="detail-panel" id="detailPanel" aria-live="polite">
+    <div class="detail-empty">Elige una especie de la lista para ver su ficha completa.</div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-row">
+      <p class="mono">AlaViva</p>
+      <p>15 de 638 especies catalogadas en España — ampliación en curso</p>
+    </div>
+    <p class="disclaimer">Esta guía orienta pero no sustituye a un CRAS. Ante heridas graves o dudas, contacta siempre con un centro de recuperación de fauna silvestre.</p>
+  </div>
+</footer>
+
+<script>
+let ESPECIES = [];
+
+async function cargarEspecies() {
+  try {
+    const res = await fetch('especies.json');
+    if (!res.ok) throw new Error('No se pudo cargar especies.json');
+    const data = await res.json();
+    ESPECIES = data.especies;
+    renderList(ESPECIES);
+
+    // Si la URL trae ?especie=id, abre esa ficha directamente
+    const params = new URLSearchParams(window.location.search);
+    const preselect = params.get('especie');
+    if (preselect) {
+      const found = ESPECIES.find(e => e.id === preselect);
+      if (found) showDetail(found);
+    }
+  } catch (err) {
+    document.getElementById('detailPanel').innerHTML =
+      '<div class="detail-empty">No se pudo cargar la base de datos de especies (especies.json). Comprueba que el archivo está en la raíz del sitio.</div>';
+    console.error(err);
+  }
+}
+
+function renderList(list) {
+  const ul = document.getElementById('speciesList');
+  ul.innerHTML = '';
+  list.forEach(especie => {
+    const li = document.createElement('li');
+    const btn = document.createElement('button');
+    btn.dataset.id = especie.id;
+    btn.setAttribute('aria-pressed', 'false');
+    btn.innerHTML = '<span class="sp-name">' + especie.nombre_comun + '</span>' +
+      '<span class="sp-sci">' + especie.nombre_cientifico + '</span>';
+    btn.addEventListener('click', () => showDetail(especie));
+    li.appendChild(btn);
+    ul.appendChild(li);
+  });
+}
+
+function positionDetailPanel(liEl) {
+  const panel = document.getElementById('detailPanel');
+  const anchor = document.getElementById('detailAnchor');
+  const esMovil = window.matchMedia('(max-width: 860px)').matches;
+
+  if (esMovil && liEl) {
+    liEl.insertAdjacentElement('afterend', panel);
+  } else {
+    anchor.insertAdjacentElement('afterend', panel);
+  }
+}
+
+function showDetail(especie) {
+  let botonActivo = null;
+  document.querySelectorAll('.species-list button').forEach(b => {
+    const active = b.dataset.id === especie.id;
+    b.classList.toggle('active', active);
+    b.setAttribute('aria-pressed', String(active));
+    if (active) botonActivo = b;
+  });
+  positionDetailPanel(botonActivo ? botonActivo.closest('li') : null);
+
+  const panel = document.getElementById('detailPanel');
+  panel.innerHTML = `
+    <div class="ficha" style="max-width:none;">
+      <div class="ficha-body">
+        <div class="ficha-head">
+          <div>
+            <h3>${especie.nombre_comun}</h3>
+            <p class="sci">${especie.nombre_cientifico}</p>
+          </div>
+        </div>
+        <div class="ficha-tags">
+          <span class="tag">${especie.familia}</span>
+          <span class="tag">${especie.dieta}</span>
+          <span class="tag">${especie.estado_conservacion}</span>
+        </div>
+
+        <div class="ficha-grid" style="margin-top:22px;">
+          <div class="ficha-field">
+            <span class="mono">Papilla — categoría comercial</span>
+            <span class="val">${especie.papilla.categoria_comercial}</span>
+          </div>
+          <div class="ficha-field">
+            <span class="mono">Receta de emergencia</span>
+            <span class="val">${especie.papilla.receta_emergencia}</span>
+          </div>
+          <div class="ficha-field">
+            <span class="mono">Frecuencia — implume</span>
+            <span class="val">${especie.papilla.frecuencia_implume}</span>
+          </div>
+          <div class="ficha-field">
+            <span class="mono">Frecuencia — juvenil/plumado</span>
+            <span class="val">${especie.papilla.frecuencia_juvenil_plumado}</span>
+          </div>
+          <div class="ficha-field">
+            <span class="mono">Peso de referencia (adulto)</span>
+            <span class="val">${especie.medidas.peso_adulto_g[0]}–${especie.medidas.peso_adulto_g[1]} g</span>
+          </div>
+          <div class="ficha-field">
+            <span class="mono">Envergadura</span>
+            <span class="val">${especie.medidas.envergadura_cm[0]}–${especie.medidas.envergadura_cm[1]} cm</span>
+          </div>
+        </div>
+
+        <div class="field-block">
+          <h4>Cómo identificarla</h4>
+          <p>${especie.identificacion.rasgos}</p>
+        </div>
+
+        <div class="field-block">
+          <h4>Se puede confundir con</h4>
+          <p>${especie.identificacion.confundible_con.join(', ')}</p>
+        </div>
+
+        <div class="field-block warn">
+          <h4>Cuándo derivar a un CRAS</h4>
+          <p>${especie.cuando_derivar_cras}</p>
+        </div>
+      </div>
+    </div>
+    <div class="cta-row" style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;">
+      <a href="mapa-cras.html" class="btn">Buscar mi CRAS</a>
+      <a href="emergencia.html" class="btn btn-outline">Ver primeros auxilios</a>
+    </div>
+  `;
+  if (window.matchMedia('(max-width: 860px)').matches) {
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+document.getElementById('searchInput').addEventListener('input', (e) => {
+  const q = e.target.value.trim().toLowerCase();
+  const filtered = ESPECIES.filter(esp =>
+    esp.nombre_comun.toLowerCase().includes(q) ||
+    esp.nombre_cientifico.toLowerCase().includes(q) ||
+    esp.familia.toLowerCase().includes(q)
+  );
+  renderList(filtered);
+});
+
+cargarEspecies();
+</script>
+
+</body>
+</html>
