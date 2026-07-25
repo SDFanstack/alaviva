@@ -72,7 +72,7 @@
 <div class="page-head wrap">
   <p class="eyebrow mono">Guía de especies</p>
   <h1>Identifica y consulta la ficha</h1>
-  <p class="lede">15 especies habituales en España, con datos verificados. Busca por nombre o elige de la lista — la identificación automática por foto llegará más adelante.</p>
+  <p class="lede" id="ledeCount">Especies habituales en España, con datos verificados. Busca por nombre o elige de la lista — la identificación automática por foto llegará más adelante.</p>
 </div>
 
 <main class="wrap layout" id="contenido">
@@ -92,7 +92,7 @@
   <div class="wrap">
     <div class="foot-row">
       <p class="mono">AlaViva</p>
-      <p>15 de 638 especies catalogadas en España — ampliación en curso</p>
+      <p id="footerCount">Ampliación en curso — 638 especies catalogadas en España en total</p>
     </div>
     <p class="disclaimer">Esta guía orienta pero no sustituye a un CRAS. Ante heridas graves o dudas, contacta siempre con un centro de recuperación de fauna silvestre.</p>
   </div>
@@ -108,6 +108,11 @@ async function cargarEspecies() {
     const data = await res.json();
     ESPECIES = data.especies;
     renderList(ESPECIES);
+
+    document.getElementById('ledeCount').textContent =
+      `${ESPECIES.length} especies habituales en España, con datos verificados. Busca por nombre o elige de la lista — la identificación automática por foto llegará más adelante.`;
+    document.getElementById('footerCount').textContent =
+      `${ESPECIES.length} de 638 especies catalogadas en España — ampliación en curso`;
 
     // Si la URL trae ?especie=id, abre esa ficha directamente
     const params = new URLSearchParams(window.location.search);
