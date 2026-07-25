@@ -1,0 +1,798 @@
+{
+  "_meta": {
+    "proyecto": "AlaViva",
+    "descripcion": "Fichas de especies con guía de cuidados para aves caídas o heridas encontradas en España.",
+    "cobertura": "25 especies habituales (fase 1 ampliada). El listado oficial completo (638 especies, SEO/BirdLife) se añadirá como índice ligero en una fase posterior.",
+    "ultima_revision": "2026-07-22",
+    "aviso": "Esta guía orienta pero no sustituye a un CRAS. Ante heridas graves, sangrado, fracturas visibles o dudas, contacta siempre con un centro de recuperación de fauna silvestre."
+  },
+  "especies": [
+    {
+      "id": "gorrion-comun",
+      "nombre_comun": "Gorrión común",
+      "nombre_cientifico": "Passer domesticus",
+      "familia": "Paséridos",
+      "dieta": "Omnívoro (semillas + insectos, sobre todo en cría)",
+      "estado_conservacion": "Preocupación menor (LC) — en declive en zonas urbanas de Europa occidental",
+      "papilla": {
+        "categoria_comercial": "Papilla para insectívoros/omnívoros pequeños (tipo Harrison's High Potency Superfine o similar)",
+        "receta_emergencia": "Puré de huevo duro + un poco de pienso de gato remojado, en pasta blanda. Solo para las primeras horas.",
+        "frecuencia_implume": "Cada 20-30 min, de sol a sol",
+        "frecuencia_juvenil_plumado": "Cada 1-2 horas"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          24,
+          32
+        ],
+        "envergadura_cm": [
+          19,
+          25
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Pico corto y grueso (granívoro), pecho pardo grisáceo, macho con babero negro y corona gris",
+        "confundible_con": [
+          "Gorrión molinero",
+          "Pardillo común"
+        ]
+      },
+      "cuando_derivar_cras": "Ala caída de forma asimétrica, sangrado activo, o si tras 48h con papilla correcta no gana peso"
+    },
+    {
+      "id": "mirlo-comun",
+      "nombre_comun": "Mirlo común",
+      "nombre_cientifico": "Turdus merula",
+      "familia": "Túrdidos",
+      "dieta": "Omnívoro (insectos, lombrices, frutos)",
+      "estado_conservacion": "Preocupación menor (LC)",
+      "papilla": {
+        "categoria_comercial": "Papilla para insectívoros (tipo Harrison's Recovery combinado con picadillo insectívoro)",
+        "receta_emergencia": "Puré de carne cruda picada + huevo duro + un poco de fruta blanda machacada",
+        "frecuencia_implume": "Cada 20-30 min",
+        "frecuencia_juvenil_plumado": "Cada 1-2 horas"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          80,
+          125
+        ],
+        "envergadura_cm": [
+          34,
+          38
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Macho negro con pico amarillo-naranja; hembra parda con pecho moteado",
+        "confundible_con": [
+          "Zorzal común (hembra joven)",
+          "Estornino pinto (juvenil)"
+        ]
+      },
+      "cuando_derivar_cras": "No puede cerrar el pico correctamente, cojera visible, o parásitos externos abundantes"
+    },
+    {
+      "id": "paloma-bravia-domestica",
+      "nombre_comun": "Paloma bravía / doméstica",
+      "nombre_cientifico": "Columba livia",
+      "familia": "Colúmbidos",
+      "dieta": "Granívoro",
+      "estado_conservacion": "Preocupación menor (LC) — población urbana muy abundante",
+      "papilla": {
+        "categoria_comercial": "Papilla de embuche para granívoras/psitácidas (tipo Exzootix o similar), administrada con jeringa sin aguja",
+        "receta_emergencia": "Papilla de cereales para bebés sin azúcar añadido + un poco de huevo duro triturado",
+        "frecuencia_implume": "Cada 3-4 horas (el buche de los pichones de paloma se vacía más lento que en paseriformes)",
+        "frecuencia_juvenil_plumado": "2-3 veces al día"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          300,
+          380
+        ],
+        "envergadura_cm": [
+          64,
+          72
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Cuerpo gris azulado, reflejos verdes/morados en el cuello, muy variable en coloración por cruces domésticos",
+        "confundible_con": [
+          "Paloma torcaz (más grande, con mancha blanca en el cuello)"
+        ]
+      },
+      "cuando_derivar_cras": "Buche visiblemente hinchado y duro (posible tricomoniasis, muy común en la especie), heridas, o no traga al ofrecerle papilla"
+    },
+    {
+      "id": "jilguero-europeo",
+      "nombre_comun": "Jilguero europeo",
+      "nombre_cientifico": "Carduelis carduelis",
+      "familia": "Fringílidos",
+      "dieta": "Granívoro",
+      "estado_conservacion": "Preocupación menor (LC)",
+      "papilla": {
+        "categoria_comercial": "Mezcla de semillas trituradas + papilla de cría insectívora, proporción 70/30",
+        "receta_emergencia": "Semillas de cardo o girasol molidas muy finas + un poco de huevo duro",
+        "frecuencia_implume": "Cada 20-30 min",
+        "frecuencia_juvenil_plumado": "Cada 1-2 horas"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          14,
+          19
+        ],
+        "envergadura_cm": [
+          21,
+          25
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Cara roja, blanca y negra muy vistosa; alas con banda amarilla",
+        "confundible_con": [
+          "Verderón común (juvenil, antes de teñirse la cara)"
+        ]
+      },
+      "cuando_derivar_cras": "Ala caída, sangrado, o si no gana peso en 48h"
+    },
+    {
+      "id": "verderon-comun",
+      "nombre_comun": "Verderón común",
+      "nombre_cientifico": "Chloris chloris",
+      "familia": "Fringílidos",
+      "dieta": "Granívoro",
+      "estado_conservacion": "Preocupación menor (LC), aunque con declive por la enfermedad de la tricomoniasis en comederos",
+      "papilla": {
+        "categoria_comercial": "Papilla de cría para silvestres granívoras (tipo Serinus Papilla para Silvestres)",
+        "receta_emergencia": "Semillas de girasol peladas y molidas + papilla de cereales para bebés",
+        "frecuencia_implume": "Cada 20-30 min",
+        "frecuencia_juvenil_plumado": "Cada 1-2 horas"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          26,
+          32
+        ],
+        "envergadura_cm": [
+          24.5,
+          27.5
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Cuerpo verde oliva, pico grueso rosado, banda amarilla en el ala",
+        "confundible_con": [
+          "Jilguero juvenil",
+          "Verdecillo (más pequeño)"
+        ]
+      },
+      "cuando_derivar_cras": "Pico deformado o costroso (señal de tricomoniasis), letargo extremo, sangrado"
+    },
+    {
+      "id": "herrerillo-comun",
+      "nombre_comun": "Herrerillo común",
+      "nombre_cientifico": "Cyanistes caeruleus",
+      "familia": "Páridos",
+      "dieta": "Insectívoro",
+      "estado_conservacion": "Preocupación menor (LC)",
+      "papilla": {
+        "categoria_comercial": "Papilla para insectívoros de talla pequeña (tipo Harrison's High Potency Superfine)",
+        "receta_emergencia": "Larvas de mosquito o gusano de la seda troceadas muy finas + puré de huevo duro. Nunca lombriz de tierra entera sin trocear, riesgo de atragantamiento por su tamaño.",
+        "frecuencia_implume": "Cada 15-20 min (metabolismo muy rápido por su tamaño diminuto)",
+        "frecuencia_juvenil_plumado": "Cada 45-60 min"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          9,
+          12
+        ],
+        "envergadura_cm": [
+          17,
+          20
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Corona y alas azules, pecho amarillo, mejillas blancas",
+        "confundible_con": [
+          "Carbonero común (más grande, con corbata negra)"
+        ]
+      },
+      "cuando_derivar_cras": "Cualquier caso: por su tamaño pequeño y metabolismo exigente, se deshidratan y debilitan muy rápido — deriva cuanto antes"
+    },
+    {
+      "id": "carbonero-comun",
+      "nombre_comun": "Carbonero común",
+      "nombre_cientifico": "Parus major",
+      "familia": "Páridos",
+      "dieta": "Insectívoro",
+      "estado_conservacion": "Preocupación menor (LC)",
+      "papilla": {
+        "categoria_comercial": "Papilla para insectívoros (tipo Harrison's High Potency)",
+        "receta_emergencia": "Larvas de mosquito o gusano de la seda troceadas + puré de huevo duro",
+        "frecuencia_implume": "Cada 15-20 min",
+        "frecuencia_juvenil_plumado": "Cada 45-60 min"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          14,
+          20
+        ],
+        "envergadura_cm": [
+          22,
+          26
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Cabeza negra con mejillas blancas, pecho amarillo con banda negra central ('corbata')",
+        "confundible_con": [
+          "Herrerillo común"
+        ]
+      },
+      "cuando_derivar_cras": "Igual que el herrerillo: deriva cuanto antes por su alta exigencia metabólica"
+    },
+    {
+      "id": "urraca",
+      "nombre_comun": "Urraca",
+      "nombre_cientifico": "Pica pica",
+      "familia": "Córvidos",
+      "dieta": "Omnívoro",
+      "estado_conservacion": "Preocupación menor (LC)",
+      "papilla": {
+        "categoria_comercial": "Papilla para omnívoros/carnívoros pequeños o pienso de gato remojado + fruta",
+        "receta_emergencia": "Carne cruda picada + huevo duro + un poco de fruta",
+        "frecuencia_implume": "Cada 30-40 min",
+        "frecuencia_juvenil_plumado": "2-3 veces al día"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          200,
+          250
+        ],
+        "envergadura_cm": [
+          52,
+          60
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Blanco y negro muy contrastado, cola muy larga con reflejos azul-verdosos",
+        "confundible_con": [
+          "Difícil de confundir por su cola y patrón"
+        ]
+      },
+      "cuando_derivar_cras": "Es una especie inteligente y de gran tamaño; casi cualquier ejemplar caído joven merece valoración veterinaria antes de intentar criarlo en casa"
+    },
+    {
+      "id": "torcaz",
+      "nombre_comun": "Paloma torcaz",
+      "nombre_cientifico": "Columba palumbus",
+      "familia": "Colúmbidos",
+      "dieta": "Granívoro",
+      "estado_conservacion": "Preocupación menor (LC)",
+      "papilla": {
+        "categoria_comercial": "Papilla de embuche para granívoras, con jeringa sin aguja (igual método que la paloma bravía)",
+        "receta_emergencia": "Papilla de cereales para bebés + huevo duro triturado",
+        "frecuencia_implume": "Cada 3-4 horas",
+        "frecuencia_juvenil_plumado": "2-3 veces al día"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          450,
+          550
+        ],
+        "envergadura_cm": [
+          75,
+          80
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Más grande que la paloma bravía, con mancha blanca característica a cada lado del cuello",
+        "confundible_con": [
+          "Paloma bravía/doméstica (más pequeña, sin mancha blanca en el cuello)"
+        ]
+      },
+      "cuando_derivar_cras": "Buche hinchado, heridas, o dificultad para tragar"
+    },
+    {
+      "id": "tortola-turca",
+      "nombre_comun": "Tórtola turca",
+      "nombre_cientifico": "Streptopelia decaocto",
+      "familia": "Colúmbidos",
+      "dieta": "Granívoro",
+      "estado_conservacion": "Preocupación menor (LC)",
+      "papilla": {
+        "categoria_comercial": "Papilla de embuche para granívoras",
+        "receta_emergencia": "Papilla de cereales para bebés + huevo duro triturado",
+        "frecuencia_implume": "Cada 3-4 horas",
+        "frecuencia_juvenil_plumado": "2-3 veces al día"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          150,
+          220
+        ],
+        "envergadura_cm": [
+          47,
+          55
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Plumaje beige-rosado uniforme, collar negro fino en la nuca (adultos)",
+        "confundible_con": [
+          "Tórtola común (más rara, con dibujo escamado en las alas)"
+        ]
+      },
+      "cuando_derivar_cras": "Buche hinchado, heridas, dificultad para tragar"
+    },
+    {
+      "id": "estornino-pinto",
+      "nombre_comun": "Estornino pinto",
+      "nombre_cientifico": "Sturnus vulgaris",
+      "familia": "Estúrnidos",
+      "dieta": "Omnívoro (insectos, frutos)",
+      "estado_conservacion": "Preocupación menor (LC)",
+      "papilla": {
+        "categoria_comercial": "Papilla para insectívoros/omnívoros",
+        "receta_emergencia": "Puré de carne cruda + huevo duro + fruta blanda",
+        "frecuencia_implume": "Cada 20-30 min",
+        "frecuencia_juvenil_plumado": "Cada 1-2 horas"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          75,
+          90
+        ],
+        "envergadura_cm": [
+          37,
+          42
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Plumaje negro con reflejos metálicos e iridiscentes, moteado en invierno; juveniles pardos uniformes",
+        "confundible_con": [
+          "Mirlo hembra (juveniles de estornino, antes del moteado)"
+        ]
+      },
+      "cuando_derivar_cras": "Suelen ingresar en grupo tras caída de nido; si hay varios pollos juntos, contacta al CRAS antes de repartirlos o separarlos"
+    },
+    {
+      "id": "golondrina-comun",
+      "nombre_comun": "Golondrina común",
+      "nombre_cientifico": "Hirundo rustica",
+      "familia": "Hirundínidos",
+      "dieta": "Insectívoro estricto (caza al vuelo)",
+      "estado_conservacion": "Casi amenazada (NT) — en declive en Europa",
+      "papilla": {
+        "categoria_comercial": "Papilla especializada para insectívoros aéreos (muy exigente, consultar con CRAS antes de intentar criarla en casa)",
+        "receta_emergencia": "Larvas de mosquito o mezcla de insectos troceados muy finos. No coge comida del suelo por naturaleza — puede necesitar alimentación forzada especializada.",
+        "frecuencia_implume": "Cada 15-20 min",
+        "frecuencia_juvenil_plumado": "Cada 45-60 min"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          16,
+          25
+        ],
+        "envergadura_cm": [
+          32,
+          35
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Cola muy ahorquillada, dorso azul metálico, garganta roja, vientre blanco",
+        "confundible_con": [
+          "Avión común (cola menos ahorquillada, sin garganta roja)",
+          "Vencejo común (alas en forma de hoz, sin cola ahorquillada tan marcada)"
+        ]
+      },
+      "cuando_derivar_cras": "Especie especialmente delicada de criar a mano: deriva a CRAS cuanto antes en casi todos los casos"
+    },
+    {
+      "id": "vencejo-comun",
+      "nombre_comun": "Vencejo común",
+      "nombre_cientifico": "Apus apus",
+      "familia": "Apódidos",
+      "dieta": "Insectívoro estricto (caza al vuelo, no se posa en el suelo por naturaleza)",
+      "estado_conservacion": "Preocupación menor (LC), pero muy sensible al manejo humano",
+      "papilla": {
+        "categoria_comercial": "Papilla especializada para vencejos (alto contenido en insectos, consultar CRAS)",
+        "receta_emergencia": "Grillos o larvas de gusano de la seda, sin patas ni alas duras, introducidos directamente en el pico — nunca se posa a comer solo del suelo",
+        "frecuencia_implume": "Cada 30-45 min",
+        "frecuencia_juvenil_plumado": "Cada 1-2 horas"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          36,
+          50
+        ],
+        "envergadura_cm": [
+          42,
+          48
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Alas muy largas en forma de hoz, cuerpo oscuro casi negro, patas diminutas (no puede despegar desde suelo llano)",
+        "confundible_con": [
+          "Golondrina común",
+          "Avión común"
+        ]
+      },
+      "cuando_derivar_cras": "Un vencejo en el suelo SIEMPRE necesita ayuda — no puede despegar por sí mismo desde una superficie plana aunque esté sano. Deriva a un CRAS o rehabilitador especializado en vencejos de inmediato."
+    },
+    {
+      "id": "petirrojo-europeo",
+      "nombre_comun": "Petirrojo europeo",
+      "nombre_cientifico": "Erithacus rubecula",
+      "familia": "Muscicápidos",
+      "dieta": "Insectívoro (con algo de fruta en invierno)",
+      "estado_conservacion": "Preocupación menor (LC)",
+      "papilla": {
+        "categoria_comercial": "Papilla para insectívoros de talla pequeña",
+        "receta_emergencia": "Larvas de mosquito troceadas + puré de huevo duro",
+        "frecuencia_implume": "Cada 15-20 min",
+        "frecuencia_juvenil_plumado": "Cada 45-60 min"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          16,
+          22
+        ],
+        "envergadura_cm": [
+          20,
+          22
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Pecho y cara naranja-rojizo, dorso pardo oliváceo. Los juveniles NO tienen el pecho rojo (son moteados pardos) — causa frecuente de confusión al identificar",
+        "confundible_con": [
+          "Juveniles de otras especies moteadas pardas (colirrojo, ruiseñor)"
+        ]
+      },
+      "cuando_derivar_cras": "Cualquier caso: especie pequeña y de metabolismo rápido, deriva cuanto antes ante la duda"
+    },
+    {
+      "id": "colirrojo-tizon",
+      "nombre_comun": "Colirrojo tizón",
+      "nombre_cientifico": "Phoenicurus ochruros",
+      "familia": "Muscicápidos",
+      "dieta": "Insectívoro",
+      "estado_conservacion": "Preocupación menor (LC)",
+      "papilla": {
+        "categoria_comercial": "Papilla para insectívoros de talla pequeña",
+        "receta_emergencia": "Larvas de mosquito troceadas + puré de huevo duro",
+        "frecuencia_implume": "Cada 15-20 min",
+        "frecuencia_juvenil_plumado": "Cada 45-60 min"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          14,
+          20
+        ],
+        "envergadura_cm": [
+          23,
+          26
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Macho gris oscuro casi negro con cola naranja-rojiza vibrante; hembra parda con la misma cola distintiva",
+        "confundible_con": [
+          "Colirrojo real (macho con pecho naranja, no solo la cola)"
+        ]
+      },
+      "cuando_derivar_cras": "Cualquier caso: especie pequeña, deriva cuanto antes ante la duda"
+    },
+    {
+      "id": "cernicalo-vulgar",
+      "nombre_comun": "Cernícalo vulgar",
+      "nombre_cientifico": "Falco tinnunculus",
+      "familia": "Falcónidos",
+      "dieta": "Carnívoro (rapaz diurna: pequeños roedores, insectos grandes)",
+      "estado_conservacion": "Preocupación menor (LC), pero protegida por ley como todas las rapaces en España",
+      "papilla": {
+        "categoria_comercial": "NO es papilla — necesita presa entera (ratones o pollitos de un día), solo administrada por un centro especializado",
+        "receta_emergencia": "No intentar alimentar bajo ningún concepto. Mantener en caja oscura y cálida, manipulación mínima, y derivar de inmediato",
+        "frecuencia_implume": "No aplica — ver aviso de riesgo de imprimación",
+        "frecuencia_juvenil_plumado": "No aplica — ver aviso de riesgo de imprimación"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          150,
+          300
+        ],
+        "envergadura_cm": [
+          65,
+          80
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Rapaz pequeña, alas puntiagudas, cola larga, vuelo característico 'cernido' (parado en el aire batiendo alas). Dorso rojizo con motas oscuras",
+        "confundible_con": [
+          "Otras rapaces pequeñas en vuelo lejano"
+        ]
+      },
+      "riesgo_imprentacion": "Alto. Evita hablar cerca de ella, que te vea manipularla más de lo estrictamente necesario, y no la expongas a otras personas o mascotas. Un ejemplar improntado (acostumbrado a humanos) puede quedar inhabilitado para ser liberado de por vida.",
+      "cuando_derivar_cras": "Siempre, sin excepción — es una rapaz protegida y su manejo requiere personal especializado (ej. GREFA, Brinzal). No intentar cuidarla en casa en ningún caso"
+    },
+    {
+      "id": "lechuza-comun",
+      "nombre_comun": "Lechuza común",
+      "nombre_cientifico": "Tyto alba",
+      "familia": "Titónidos",
+      "dieta": "Carnívoro (rapaz nocturna: roedores)",
+      "estado_conservacion": "Preocupación menor (LC), protegida por ley como todas las rapaces en España",
+      "papilla": {
+        "categoria_comercial": "NO es papilla — necesita presa entera (ratones), solo administrada por un centro especializado",
+        "receta_emergencia": "No intentar alimentar. Caja oscura y cálida, manipulación mínima, derivar de inmediato",
+        "frecuencia_implume": "No aplica — ver aviso de riesgo de imprimación",
+        "frecuencia_juvenil_plumado": "No aplica — ver aviso de riesgo de imprimación"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          250,
+          400
+        ],
+        "envergadura_cm": [
+          85,
+          95
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Cara en forma de corazón blanca muy característica, dorso dorado-grisáceo, vientre blanco, vuelo silencioso nocturno",
+        "confundible_con": [
+          "Cárabo común (cara redonda, no en corazón)",
+          "Búho chico (con 'orejas' de plumas)"
+        ]
+      },
+      "riesgo_imprentacion": "Alto. Manipulación mínima e imprescindible únicamente. Un ejemplar improntado puede quedar inhabilitado para ser liberado de por vida.",
+      "cuando_derivar_cras": "Siempre, sin excepción — rapaz protegida, requiere un centro especializado en rapaces nocturnas (ej. Brinzal)"
+    },
+    {
+      "id": "autillo-europeo",
+      "nombre_comun": "Autillo europeo",
+      "nombre_cientifico": "Otus scops",
+      "familia": "Estrígidos",
+      "dieta": "Carnívoro (rapaz nocturna pequeña: insectos grandes, pequeños vertebrados)",
+      "estado_conservacion": "Preocupación menor (LC), protegida por ley como todas las rapaces en España",
+      "papilla": {
+        "categoria_comercial": "NO es papilla — necesita presa entera (insectos grandes, pequeños roedores), solo por un centro especializado",
+        "receta_emergencia": "No intentar alimentar. Caja oscura y cálida, manipulación mínima, derivar de inmediato",
+        "frecuencia_implume": "No aplica — ver aviso de riesgo de imprimación",
+        "frecuencia_juvenil_plumado": "No aplica — ver aviso de riesgo de imprimación"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          65,
+          135
+        ],
+        "envergadura_cm": [
+          47,
+          54
+        ]
+      },
+      "identificacion": {
+        "rasgos": "El búho más pequeño de España, con 'orejas' de plumas pequeñas, plumaje gris o pardo muy mimetizado con la corteza de árbol",
+        "confundible_con": [
+          "Mochuelo europeo (sin 'orejas' de plumas)"
+        ]
+      },
+      "riesgo_imprentacion": "Alto, a pesar de su tamaño pequeño. Manipulación mínima imprescindible únicamente.",
+      "cuando_derivar_cras": "Siempre, sin excepción — rapaz protegida, requiere centro especializado"
+    },
+    {
+      "id": "avion-comun",
+      "nombre_comun": "Avión común",
+      "nombre_cientifico": "Delichon urbicum",
+      "familia": "Hirundínidos",
+      "dieta": "Insectívoro estricto (caza al vuelo)",
+      "estado_conservacion": "Preocupación menor (LC), en declive en Europa",
+      "papilla": {
+        "categoria_comercial": "Papilla especializada para insectívoros aéreos (muy exigente, consultar con CRAS antes de intentar criarlo en casa)",
+        "receta_emergencia": "Larvas de mosquito troceadas muy finas, introducidas directamente en el pico — no coge comida del suelo por naturaleza",
+        "frecuencia_implume": "Cada 15-20 min",
+        "frecuencia_juvenil_plumado": "Cada 45-60 min"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          15,
+          23
+        ],
+        "envergadura_cm": [
+          26,
+          29
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Dorso azul-negro brillante, obispillo (rabadilla) blanco muy visible en vuelo, vientre blanco, cola corta poco ahorquillada",
+        "confundible_con": [
+          "Golondrina común (cola muy ahorquillada, sin obispillo blanco)",
+          "Vencejo común (sin blanco, alas en hoz)"
+        ]
+      },
+      "cuando_derivar_cras": "Especie delicada de criar a mano, como la golondrina: deriva a CRAS cuanto antes en casi todos los casos"
+    },
+    {
+      "id": "pinzon-vulgar",
+      "nombre_comun": "Pinzón vulgar",
+      "nombre_cientifico": "Fringilla coelebs",
+      "familia": "Fringílidos",
+      "dieta": "Granívoro (con insectos en época de cría)",
+      "estado_conservacion": "Preocupación menor (LC)",
+      "papilla": {
+        "categoria_comercial": "Mezcla de semillas trituradas + papilla de cría insectívora, proporción 60/40",
+        "receta_emergencia": "Semillas peladas y molidas finas + un poco de huevo duro",
+        "frecuencia_implume": "Cada 20-30 min",
+        "frecuencia_juvenil_plumado": "Cada 1-2 horas"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          19,
+          24
+        ],
+        "envergadura_cm": [
+          25,
+          28
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Macho con pecho rosado-rojizo y corona azul-grisácea; hembra parda más discreta. Dos bandas blancas visibles en el ala en ambos sexos",
+        "confundible_con": [
+          "Pinzón real (invernante, más raro)",
+          "Gorrión común (hembra)"
+        ]
+      },
+      "cuando_derivar_cras": "Ala caída, sangrado, o si no gana peso en 48h"
+    },
+    {
+      "id": "lavandera-blanca",
+      "nombre_comun": "Lavandera blanca",
+      "nombre_cientifico": "Motacilla alba",
+      "familia": "Motacílidos",
+      "dieta": "Insectívoro",
+      "estado_conservacion": "Preocupación menor (LC)",
+      "papilla": {
+        "categoria_comercial": "Papilla para insectívoros de talla pequeña",
+        "receta_emergencia": "Larvas de mosquito troceadas + puré de huevo duro",
+        "frecuencia_implume": "Cada 15-20 min",
+        "frecuencia_juvenil_plumado": "Cada 45-60 min"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          18,
+          27
+        ],
+        "envergadura_cm": [
+          25,
+          30
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Blanco, gris y negro, cola larga que mueve constantemente arriba y abajo, camina más que salta",
+        "confundible_con": [
+          "Lavandera cascadeña (vientre amarillo, no blanco)"
+        ]
+      },
+      "cuando_derivar_cras": "Cualquier caso: especie pequeña de metabolismo rápido, deriva cuanto antes ante la duda"
+    },
+    {
+      "id": "curruca-capirotada",
+      "nombre_comun": "Curruca capirotada",
+      "nombre_cientifico": "Sylvia atricapilla",
+      "familia": "Sílvidos",
+      "dieta": "Insectívoro (con frutos en otoño-invierno)",
+      "estado_conservacion": "Preocupación menor (LC)",
+      "papilla": {
+        "categoria_comercial": "Papilla para insectívoros de talla pequeña",
+        "receta_emergencia": "Larvas de mosquito troceadas + puré de huevo duro + un poco de fruta blanda",
+        "frecuencia_implume": "Cada 15-20 min",
+        "frecuencia_juvenil_plumado": "Cada 45-60 min"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          15,
+          25
+        ],
+        "envergadura_cm": [
+          20,
+          24
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Macho con capirote negro; hembra con capirote pardo-rojizo. Cuerpo gris oliváceo discreto",
+        "confundible_con": [
+          "Otras currucas (rasgos de cara y capirote distintos)"
+        ]
+      },
+      "cuando_derivar_cras": "Cualquier caso: especie pequeña, deriva cuanto antes ante la duda"
+    },
+    {
+      "id": "abubilla",
+      "nombre_comun": "Abubilla",
+      "nombre_cientifico": "Upupa epops",
+      "familia": "Upupídidos",
+      "dieta": "Insectívoro (larvas e insectos grandes que extrae del suelo)",
+      "estado_conservacion": "Preocupación menor (LC)",
+      "papilla": {
+        "categoria_comercial": "Papilla para insectívoros de talla media (tipo Harrison's Recovery)",
+        "receta_emergencia": "Gusanos de la harina o larvas troceadas + un poco de carne cruda picada",
+        "frecuencia_implume": "Cada 20-30 min",
+        "frecuencia_juvenil_plumado": "Cada 1-2 horas"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          55,
+          80
+        ],
+        "envergadura_cm": [
+          44,
+          48
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Inconfundible: cresta eréctil anaranjada con puntas negras, pico largo y curvado, alas con rayas blancas y negras muy marcadas",
+        "confundible_con": [
+          "Prácticamente ninguna otra especie ibérica"
+        ]
+      },
+      "cuando_derivar_cras": "Pico dañado (depende de él para alimentarse en el suelo), ala caída, o si no gana peso en 48h"
+    },
+    {
+      "id": "cogujada-comun",
+      "nombre_comun": "Cogujada común",
+      "nombre_cientifico": "Galerida cristata",
+      "familia": "Aláudidos",
+      "dieta": "Granívoro (con insectos en época de cría)",
+      "estado_conservacion": "Preocupación menor (LC)",
+      "papilla": {
+        "categoria_comercial": "Mezcla de semillas trituradas + papilla de cría insectívora, proporción 60/40",
+        "receta_emergencia": "Semillas molidas finas + un poco de huevo duro",
+        "frecuencia_implume": "Cada 20-30 min",
+        "frecuencia_juvenil_plumado": "Cada 1-2 horas"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          30,
+          45
+        ],
+        "envergadura_cm": [
+          30,
+          38
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Cresta puntiaguda característica, plumaje pardo terroso moteado, camina por el suelo en zonas abiertas y descampados",
+        "confundible_con": [
+          "Cogujada montesina (cresta más corta, más rara)",
+          "Alondra común (sin cresta)"
+        ]
+      },
+      "cuando_derivar_cras": "Ala caída, sangrado, o si no gana peso en 48h"
+    },
+    {
+      "id": "rabilargo-iberico",
+      "nombre_comun": "Rabilargo ibérico",
+      "nombre_cientifico": "Cyanopica cooki",
+      "familia": "Córvidos",
+      "dieta": "Omnívoro",
+      "estado_conservacion": "Preocupación menor (LC) — endemismo ibérico, presente solo en España y Portugal",
+      "papilla": {
+        "categoria_comercial": "Papilla para omnívoros/carnívoros pequeños o pienso de gato remojado + fruta",
+        "receta_emergencia": "Carne cruda picada + huevo duro + un poco de fruta",
+        "frecuencia_implume": "Cada 30-40 min",
+        "frecuencia_juvenil_plumado": "2-3 veces al día"
+      },
+      "medidas": {
+        "peso_adulto_g": [
+          65,
+          100
+        ],
+        "envergadura_cm": [
+          38,
+          42
+        ]
+      },
+      "identificacion": {
+        "rasgos": "Corona negra, alas y cola azul celeste muy larga, dorso pardo-rosado. Vive en grupos ruidosos",
+        "confundible_con": [
+          "Difícil de confundir por su color azul y cola larga"
+        ]
+      },
+      "cuando_derivar_cras": "Como con la urraca: especie inteligente y social, casi cualquier ejemplar joven caído merece valoración veterinaria antes de intentar criarlo en casa"
+    }
+  ]
+}
