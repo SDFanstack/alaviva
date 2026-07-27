@@ -45,6 +45,24 @@
     box-shadow: 0 3px 8px rgba(31, 42, 34, 0.18);
     transform: rotate(-3deg);
     background: var(--moss-soft);
+    cursor: zoom-in;
+    transition: transform .15s;
+  }
+  .especie-sello:hover, .especie-sello:focus-visible { transform: rotate(0deg) scale(1.04); }
+
+  .lightbox-overlay {
+    display: none; position: fixed; inset: 0; background: rgba(31, 42, 34, 0.82);
+    z-index: 200; align-items: center; justify-content: center; padding: 24px;
+    cursor: zoom-out;
+  }
+  .lightbox-overlay.open { display: flex; }
+  .lightbox-overlay img {
+    max-width: min(90vw, 560px); max-height: 80vh; border-radius: 10px;
+    border: 6px solid #fff; box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  }
+  .lightbox-close {
+    position: absolute; top: 20px; right: 24px; background: none; border: none;
+    color: #fff; font-size: 2rem; cursor: pointer; line-height: 1; font-family: inherit;
   }
 
   .meta-note {
@@ -95,6 +113,11 @@
     <div class="detail-empty">Elige una especie de la lista para ver su ficha completa.</div>
   </div>
 </main>
+
+<div class="lightbox-overlay" id="lightbox" onclick="cerrarLightbox()">
+  <button class="lightbox-close" onclick="cerrarLightbox()" aria-label="Cerrar imagen ampliada">✕</button>
+  <img id="lightboxImg" src="" alt="" onclick="event.stopPropagation()">
+</div>
 
 <footer class="site">
   <div class="wrap">
@@ -184,7 +207,8 @@ function showDetail(especie) {
             <p class="sci">${especie.nombre_cientifico}</p>
           </div>
           <img src="${especie.imagen}" alt="Foto de ${especie.nombre_comun}" class="especie-sello"
-               onerror="this.style.display='none'">
+               onerror="this.style.display='none'" onclick="abrirLightbox('${especie.imagen}', '${especie.nombre_comun}')"
+               tabindex="0" role="button" aria-label="Ampliar foto de ${especie.nombre_comun}">
         </div>
         <div class="ficha-tags">
           <span class="tag">${especie.familia}</span>
@@ -259,6 +283,22 @@ document.getElementById('searchInput').addEventListener('input', (e) => {
     esp.familia.toLowerCase().includes(q)
   );
   renderList(filtered);
+});
+
+function abrirLightbox(src, nombre) {
+  const overlay = document.getElementById('lightbox');
+  const img = document.getElementById('lightboxImg');
+  img.src = src;
+  img.alt = 'Foto ampliada de ' + nombre;
+  overlay.classList.add('open');
+}
+
+function cerrarLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') cerrarLightbox();
 });
 
 cargarEspecies();
