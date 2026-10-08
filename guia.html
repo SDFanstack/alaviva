@@ -35,6 +35,8 @@
   .field-block { margin-top: 22px; }
   .field-block h4 { font-size: 0.98rem; margin-bottom: 8px; color: var(--ink); font-family: 'Inter', sans-serif; }
   .field-block p { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.6; }
+  .field-block.cria { background: var(--moss-soft); border-radius: 10px; padding: 16px 18px; }
+  .field-block.cria h4 .tag { margin-left: 8px; vertical-align: middle; }
   .field-block.warn { background: var(--urgent-soft); border-radius: 10px; padding: 16px 18px; }
   .field-block.warn h4 { color: var(--urgent); }
   .field-block.warn p { color: #7A3325; }
@@ -70,6 +72,9 @@
     font-size: 0.88rem; color: var(--primary);
   }
 </style>
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#2F4A3D">
+<link rel="icon" href="/assets/icons/icon-192.png">
 </head>
 <body>
 
@@ -83,6 +88,7 @@
       </svg>
       AlaViva
     </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <nav class="site-nav" aria-label="Navegación principal">
       <a href="index.html">Inicio</a>
       <a href="checklist.html">¿Necesita ayuda?</a>
@@ -98,7 +104,7 @@
 <div class="page-head wrap">
   <p class="eyebrow mono">Guía de especies</p>
   <h1>Identifica y consulta la ficha</h1>
-  <p class="lede" id="ledeCount">Especies habituales en España, con datos verificados. Busca por nombre o elige de la lista — Todas las imágenes estarán disponibles más adelante.</p>
+  <p class="lede" id="ledeCount">Especies habituales en España, con datos verificados. Busca por nombre o elige de la lista — la identificación automática por foto llegará más adelante.</p>
 </div>
 
 <main class="wrap layout" id="contenido">
@@ -130,6 +136,10 @@
 </footer>
 
 <script>
+// Súbelo en 1 cada vez que cambies o borres una imagen y quieras forzar
+// que se vea la nueva sin esperar a que expire la caché de Cloudflare.
+const IMG_VERSION = 2;
+
 let ESPECIES = [];
 
 async function cargarEspecies() {
@@ -206,8 +216,8 @@ function showDetail(especie) {
             <h3>${especie.nombre_comun}</h3>
             <p class="sci">${especie.nombre_cientifico}</p>
           </div>
-          <img src="${especie.imagen}" alt="Foto de ${especie.nombre_comun}" class="especie-sello"
-               onerror="this.style.display='none'" onclick="abrirLightbox('${especie.imagen}', '${especie.nombre_comun}')"
+          <img src="${especie.imagen}?v=${IMG_VERSION}" alt="Foto de ${especie.nombre_comun}" class="especie-sello"
+               onerror="this.style.display='none'" onclick="abrirLightbox('${especie.imagen}?v=${IMG_VERSION}', '${especie.nombre_comun}')"
                tabindex="0" role="button" aria-label="Ampliar foto de ${especie.nombre_comun}">
         </div>
         <div class="ficha-tags">
@@ -242,6 +252,13 @@ function showDetail(especie) {
             <span class="val">${especie.medidas.envergadura_cm[0]}–${especie.medidas.envergadura_cm[1]} cm</span>
           </div>
         </div>
+
+        ${especie.desarrollo ? `
+        <div class="field-block cria">
+          <h4>¿Está de verdad abandonado? <span class="tag">${{'nidicola':'Nidícola','nidifugo':'Nidífugo','semi-nidifugo':'Semi-nidífugo'}[especie.desarrollo.tipo]}</span></h4>
+          <p>${especie.desarrollo.descripcion}</p>
+          <p style="margin-top:8px;"><strong>Qué hacer:</strong> ${especie.desarrollo.que_hacer}</p>
+        </div>` : ''}
 
         <div class="field-block">
           <h4>Cómo identificarla</h4>
@@ -304,5 +321,27 @@ document.addEventListener('keydown', (e) => {
 cargarEspecies();
 </script>
 
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
+}
+</script>
+<script>
+const navToggle = document.getElementById('navToggle');
+const siteNav = document.querySelector('.site-nav');
+if (navToggle && siteNav) {
+  navToggle.addEventListener('click', () => {
+    const abierto = siteNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(abierto));
+  });
+  // Cierra el menú al tocar cualquier enlace
+  siteNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      siteNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+</script>
 </body>
 </html>

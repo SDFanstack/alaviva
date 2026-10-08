@@ -1,0 +1,13 @@
+name = "alaviva-api"
+main = "src/index.js"
+compatibility_date = "2026-07-01"
+
+# El binding de KV para el rate limiting. El "id" lo genera Cloudflare
+# al crear el namespace (ver README de este worker) — sustitúyelo ahí.
+kv_namespaces = [
+  { binding = "RATE_LIMIT_KV", id = "8a4e495702194bf2a3cb616d4d2500de" }
+]
+
+# GEMINI_API_KEY NO va aquí — se sube como secreto con:
+#   npx wrangler secret put GEMINI_API_KEY
+# Nunca lo pongas en este archivo ni lo subas a GitHub.

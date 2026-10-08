@@ -55,6 +55,8 @@
   .cras-item h4 { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.98rem; color: var(--ink); margin-bottom: 6px; }
   .cras-item .addr { font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 4px; }
   .cras-item .phone { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; color: var(--primary); }
+  .report-link { display: inline-block; margin-top: 18px; font-size: 0.85rem; color: var(--ink-soft); }
+  .report-link:hover, .report-link:focus-visible { color: var(--primary); }
   .empty-state { color: var(--ink-soft); font-size: 0.92rem; padding: 20px 0; }
 </style>
 <link rel="manifest" href="/manifest.json">
@@ -293,6 +295,10 @@ function renderPanel(id) {
       '<p class="addr">' + c.addr + '</p>' +
       '<p class="phone">' + c.phone + '</p></div>';
   });
+  // Aviso de dato incorrecto: abre un issue de GitHub ya rellenado con la comunidad
+  const titulo = encodeURIComponent('Dato incorrecto en CRAS: ' + region.name);
+  const cuerpo = encodeURIComponent('Comunidad: ' + region.name + '\n\nQué centro/dato está mal:\n\nDato correcto (y fuente si la tienes):\n');
+  html += '<a class="report-link" target="_blank" rel="noopener" href="https://github.com/SDFanstack/alaviva/issues/new?title=' + titulo + '&body=' + cuerpo + '">¿Algún dato está desactualizado? Avísanos</a>';
   document.getElementById('panel').innerHTML = html;
 }
 

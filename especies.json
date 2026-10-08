@@ -38,7 +38,12 @@
         ]
       },
       "cuando_derivar_cras": "Ala caída de forma asimétrica, sangrado activo, o si tras 48h con papilla correcta no gana peso",
-      "imagen": "assets/aves/gorrion-comun.jpg"
+      "imagen": "assets/aves/gorrion-comun.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "mirlo-comun",
@@ -71,7 +76,12 @@
         ]
       },
       "cuando_derivar_cras": "No puede cerrar el pico correctamente, cojera visible, o parásitos externos abundantes",
-      "imagen": "assets/aves/mirlo-comun.jpg"
+      "imagen": "assets/aves/mirlo-comun.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "paloma-bravia-domestica",
@@ -103,7 +113,12 @@
         ]
       },
       "cuando_derivar_cras": "Buche visiblemente hinchado y duro (posible tricomoniasis, muy común en la especie), heridas, o no traga al ofrecerle papilla",
-      "imagen": "assets/aves/paloma-bravia-domestica.jpg"
+      "imagen": "assets/aves/paloma-bravia-domestica.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: el pichón se alimenta de «leche de buche» de los padres y tarda semanas en volar; es normal verlo en el suelo si ya tiene plumas.",
+        "que_hacer": "Si está emplumado y activo, déjalo y observa. Si es un pichón implume o está herido, llama a un CRAS: la alimentación manual de palomas es delicada y no conviene improvisarla."
+      }
     },
     {
       "id": "jilguero-europeo",
@@ -135,7 +150,12 @@
         ]
       },
       "cuando_derivar_cras": "Ala caída, sangrado, o si no gana peso en 48h",
-      "imagen": "assets/aves/jilguero-europeo.jpg"
+      "imagen": "assets/aves/jilguero-europeo.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "verderon-comun",
@@ -168,7 +188,12 @@
         ]
       },
       "cuando_derivar_cras": "Pico deformado o costroso (señal de tricomoniasis), letargo extremo, sangrado",
-      "imagen": "assets/aves/verderon-comun.jpg"
+      "imagen": "assets/aves/verderon-comun.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "herrerillo-comun",
@@ -200,7 +225,12 @@
         ]
       },
       "cuando_derivar_cras": "Cualquier caso: por su tamaño pequeño y metabolismo exigente, se deshidratan y debilitan muy rápido — deriva cuanto antes",
-      "imagen": "assets/aves/herrerillo-comun.jpg"
+      "imagen": "assets/aves/herrerillo-comun.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "carbonero-comun",
@@ -232,7 +262,12 @@
         ]
       },
       "cuando_derivar_cras": "Igual que el herrerillo: deriva cuanto antes por su alta exigencia metabólica",
-      "imagen": "assets/aves/carbonero-comun.jpg"
+      "imagen": "assets/aves/carbonero-comun.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "urraca",
@@ -264,7 +299,12 @@
         ]
       },
       "cuando_derivar_cras": "Es una especie inteligente y de gran tamaño; casi cualquier ejemplar caído joven merece valoración veterinaria antes de intentar criarlo en casa",
-      "imagen": "assets/aves/urraca.jpg"
+      "imagen": "assets/aves/urraca.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "torcaz",
@@ -296,7 +336,12 @@
         ]
       },
       "cuando_derivar_cras": "Buche hinchado, heridas, o dificultad para tragar",
-      "imagen": "assets/aves/torcaz.jpg"
+      "imagen": "assets/aves/torcaz.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: el pichón se alimenta de «leche de buche» de los padres y tarda semanas en volar; es normal verlo en el suelo si ya tiene plumas.",
+        "que_hacer": "Si está emplumado y activo, déjalo y observa. Si es un pichón implume o está herido, llama a un CRAS: la alimentación manual de palomas es delicada y no conviene improvisarla."
+      }
     },
     {
       "id": "tortola-turca",
@@ -328,7 +373,12 @@
         ]
       },
       "cuando_derivar_cras": "Buche hinchado, heridas, dificultad para tragar",
-      "imagen": "assets/aves/tortola-turca.jpg"
+      "imagen": "assets/aves/tortola-turca.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: el pichón se alimenta de «leche de buche» de los padres y tarda semanas en volar; es normal verlo en el suelo si ya tiene plumas.",
+        "que_hacer": "Si está emplumado y activo, déjalo y observa. Si es un pichón implume o está herido, llama a un CRAS: la alimentación manual de palomas es delicada y no conviene improvisarla."
+      }
     },
     {
       "id": "estornino-pinto",
@@ -360,7 +410,12 @@
         ]
       },
       "cuando_derivar_cras": "Suelen ingresar en grupo tras caída de nido; si hay varios pollos juntos, contacta al CRAS antes de repartirlos o separarlos",
-      "imagen": "assets/aves/estornino-pinto.jpg"
+      "imagen": "assets/aves/estornino-pinto.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "golondrina-comun",
@@ -393,7 +448,12 @@
         ]
       },
       "cuando_derivar_cras": "Especie especialmente delicada de criar a mano: deriva a CRAS cuanto antes en casi todos los casos",
-      "imagen": "assets/aves/golondrina-comun.jpg"
+      "imagen": "assets/aves/golondrina-comun.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "vencejo-comun",
@@ -426,7 +486,12 @@
         ]
       },
       "cuando_derivar_cras": "Un vencejo en el suelo SIEMPRE necesita ayuda — no puede despegar por sí mismo desde una superficie plana aunque esté sano. Deriva a un CRAS o rehabilitador especializado en vencejos de inmediato.",
-      "imagen": "assets/aves/vencejo-comun.jpg"
+      "imagen": "assets/aves/vencejo-comun.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola y de vida aérea: los adultos pasan casi toda la vida volando y tienen las patas muy cortas.",
+        "que_hacer": "Un vencejo o ave similar en el suelo no puede despegar por sí mismo. No lo lances al aire ni lo alimentes: guárdalo en una caja oscura y ventilada y llama a un CRAS."
+      }
     },
     {
       "id": "petirrojo-europeo",
@@ -458,7 +523,12 @@
         ]
       },
       "cuando_derivar_cras": "Cualquier caso: especie pequeña y de metabolismo rápido, deriva cuanto antes ante la duda",
-      "imagen": "assets/aves/petirrojo-europeo.jpg"
+      "imagen": "assets/aves/petirrojo-europeo.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "colirrojo-tizon",
@@ -490,7 +560,12 @@
         ]
       },
       "cuando_derivar_cras": "Cualquier caso: especie pequeña, deriva cuanto antes ante la duda",
-      "imagen": "assets/aves/colirrojo-tizon.jpg"
+      "imagen": "assets/aves/colirrojo-tizon.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "cernicalo-vulgar",
@@ -523,7 +598,12 @@
       },
       "riesgo_imprentacion": "Alto. Evita hablar cerca de ella, que te vea manipularla más de lo estrictamente necesario, y no la expongas a otras personas o mascotas. Un ejemplar improntado (acostumbrado a humanos) puede quedar inhabilitado para ser liberado de por vida.",
       "cuando_derivar_cras": "Siempre, sin excepción — es una rapaz protegida y su manejo requiere personal especializado (ej. GREFA, Brinzal). No intentar cuidarla en casa en ningún caso",
-      "imagen": "assets/aves/cernicalo-vulgar.jpg"
+      "imagen": "assets/aves/cernicalo-vulgar.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: los pollos permanecen en el nido hasta que son casi adultos.",
+        "que_hacer": "Un pollo de rapaz en el suelo sí suele necesitar ayuda: si está a la vista y el nido es accesible sin riesgo, devuélvelo; si no, llama a un CRAS. No le des comida ni agua."
+      }
     },
     {
       "id": "lechuza-comun",
@@ -557,7 +637,12 @@
       },
       "riesgo_imprentacion": "Alto. Manipulación mínima e imprescindible únicamente. Un ejemplar improntado puede quedar inhabilitado para ser liberado de por vida.",
       "cuando_derivar_cras": "Siempre, sin excepción — rapaz protegida, requiere un centro especializado en rapaces nocturnas (ej. Brinzal)",
-      "imagen": "assets/aves/lechuza-comun.jpg"
+      "imagen": "assets/aves/lechuza-comun.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: los pollos permanecen en el nido hasta que son casi adultos.",
+        "que_hacer": "Un pollo de rapaz en el suelo sí suele necesitar ayuda: si está a la vista y el nido es accesible sin riesgo, devuélvelo; si no, llama a un CRAS. No le des comida ni agua."
+      }
     },
     {
       "id": "autillo-europeo",
@@ -590,7 +675,12 @@
       },
       "riesgo_imprentacion": "Alto, a pesar de su tamaño pequeño. Manipulación mínima imprescindible únicamente.",
       "cuando_derivar_cras": "Siempre, sin excepción — rapaz protegida, requiere centro especializado",
-      "imagen": "assets/aves/autillo-europeo.jpg"
+      "imagen": "assets/aves/autillo-europeo.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola, pero los pollos «ramean»: salen del nido trepando por las ramas antes de volar y los padres los siguen alimentando de noche.",
+        "que_hacer": "Un pollo con plumón o plumas a medias en una rama o en el suelo no está necesariamente abandonado. Si no está herido, déjalo (o súbelo a una rama cercana sin dejarlo cerca de gatos) y observa de lejos. Si está herido o expuesto a peligro, CRAS."
+      }
     },
     {
       "id": "avion-comun",
@@ -623,7 +713,12 @@
         ]
       },
       "cuando_derivar_cras": "Especie delicada de criar a mano, como la golondrina: deriva a CRAS cuanto antes en casi todos los casos",
-      "imagen": "assets/aves/avion-comun.jpg"
+      "imagen": "assets/aves/avion-comun.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "pinzon-vulgar",
@@ -656,7 +751,12 @@
         ]
       },
       "cuando_derivar_cras": "Ala caída, sangrado, o si no gana peso en 48h",
-      "imagen": "assets/aves/pinzon-vulgar.jpg"
+      "imagen": "assets/aves/pinzon-vulgar.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "lavandera-blanca",
@@ -688,7 +788,12 @@
         ]
       },
       "cuando_derivar_cras": "Cualquier caso: especie pequeña de metabolismo rápido, deriva cuanto antes ante la duda",
-      "imagen": "assets/aves/lavandera-blanca.jpg"
+      "imagen": "assets/aves/lavandera-blanca.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "curruca-capirotada",
@@ -720,7 +825,12 @@
         ]
       },
       "cuando_derivar_cras": "Cualquier caso: especie pequeña, deriva cuanto antes ante la duda",
-      "imagen": "assets/aves/curruca-capirotada.jpg"
+      "imagen": "assets/aves/curruca-capirotada.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "abubilla",
@@ -752,7 +862,12 @@
         ]
       },
       "cuando_derivar_cras": "Pico dañado (depende de él para alimentarse en el suelo), ala caída, o si no gana peso en 48h",
-      "imagen": "assets/aves/abubilla.jpg"
+      "imagen": "assets/aves/abubilla.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: cría en cavidades o taludes; los pollos permanecen dentro hasta tener plumas completas.",
+        "que_hacer": "Si encuentras un pollo fuera de su cavidad y no se puede devolver con seguridad, llama a un CRAS. No lo alimentes."
+      }
     },
     {
       "id": "cogujada-comun",
@@ -785,7 +900,12 @@
         ]
       },
       "cuando_derivar_cras": "Ala caída, sangrado, o si no gana peso en 48h",
-      "imagen": "assets/aves/cogujada-comun.jpg"
+      "imagen": "assets/aves/cogujada-comun.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "rabilargo-iberico",
@@ -817,7 +937,12 @@
         ]
       },
       "cuando_derivar_cras": "Como con la urraca: especie inteligente y social, casi cualquier ejemplar joven caído merece valoración veterinaria antes de intentar criarlo en casa",
-      "imagen": "assets/aves/rabilargo-iberico.jpg"
+      "imagen": "assets/aves/rabilargo-iberico.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "chochin",
@@ -849,7 +974,12 @@
         ]
       },
       "cuando_derivar_cras": "Cualquier caso: por su tamaño mínimo se deshidrata y debilita en poco tiempo, deriva cuanto antes",
-      "imagen": "assets/aves/chochin.jpg"
+      "imagen": "assets/aves/chochin.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "agateador-comun",
@@ -881,7 +1011,12 @@
         ]
       },
       "cuando_derivar_cras": "Cualquier caso: especie pequeña, deriva cuanto antes ante la duda",
-      "imagen": "assets/aves/agateador-comun.jpg"
+      "imagen": "assets/aves/agateador-comun.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "trepador-azul",
@@ -913,7 +1048,12 @@
         ]
       },
       "cuando_derivar_cras": "Ala caída, sangrado, o si no gana peso en 48h",
-      "imagen": "assets/aves/trepador-azul.jpg"
+      "imagen": "assets/aves/trepador-azul.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "curruca-cabecinegra",
@@ -945,7 +1085,12 @@
         ]
       },
       "cuando_derivar_cras": "Cualquier caso: especie pequeña, deriva cuanto antes ante la duda",
-      "imagen": "assets/aves/curruca-cabecinegra.jpg"
+      "imagen": "assets/aves/curruca-cabecinegra.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "mosquitero-comun",
@@ -978,7 +1123,12 @@
         ]
       },
       "cuando_derivar_cras": "Cualquier caso: uno de los pájaros más pequeños y frágiles, deriva cuanto antes",
-      "imagen": "assets/aves/mosquitero-comun.jpg"
+      "imagen": "assets/aves/mosquitero-comun.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "zorzal-comun",
@@ -1011,7 +1161,12 @@
         ]
       },
       "cuando_derivar_cras": "Cojera, no puede cerrar el pico bien, o parásitos externos abundantes",
-      "imagen": "assets/aves/zorzal-comun.jpg"
+      "imagen": "assets/aves/zorzal-comun.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "zorzal-charlo",
@@ -1043,7 +1198,12 @@
         ]
       },
       "cuando_derivar_cras": "Cojera, ala caída, o si no gana peso en 48h",
-      "imagen": "assets/aves/zorzal-charlo.jpg"
+      "imagen": "assets/aves/zorzal-charlo.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "camachuelo-comun",
@@ -1075,7 +1235,12 @@
         ]
       },
       "cuando_derivar_cras": "Ala caída, sangrado, o si no gana peso en 48h",
-      "imagen": "assets/aves/camachuelo-comun.jpg"
+      "imagen": "assets/aves/camachuelo-comun.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "verdecillo",
@@ -1108,7 +1273,12 @@
         ]
       },
       "cuando_derivar_cras": "Cualquier caso: especie pequeña, deriva cuanto antes ante la duda",
-      "imagen": "assets/aves/verdecillo.jpg"
+      "imagen": "assets/aves/verdecillo.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "triguero",
@@ -1140,7 +1310,12 @@
         ]
       },
       "cuando_derivar_cras": "Ala caída, sangrado, o si no gana peso en 48h",
-      "imagen": "assets/aves/triguero.jpg"
+      "imagen": "assets/aves/triguero.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "alondra-comun",
@@ -1173,7 +1348,12 @@
         ]
       },
       "cuando_derivar_cras": "Ala caída, sangrado, o si no gana peso en 48h",
-      "imagen": "assets/aves/alondra-comun.jpg"
+      "imagen": "assets/aves/alondra-comun.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "abejaruco-europeo",
@@ -1205,7 +1385,12 @@
         ]
       },
       "cuando_derivar_cras": "Especie delicada de criar a mano por su dieta muy especializada: deriva a CRAS cuanto antes en casi todos los casos",
-      "imagen": "assets/aves/abejaruco-europeo.jpg"
+      "imagen": "assets/aves/abejaruco-europeo.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: cría en cavidades o taludes; los pollos permanecen dentro hasta tener plumas completas.",
+        "que_hacer": "Si encuentras un pollo fuera de su cavidad y no se puede devolver con seguridad, llama a un CRAS. No lo alimentes."
+      }
     },
     {
       "id": "martin-pescador",
@@ -1237,7 +1422,12 @@
         ]
       },
       "cuando_derivar_cras": "Siempre — su dieta especializada en peces hace inviable cualquier intento casero de alimentación",
-      "imagen": "assets/aves/martin-pescador.jpg"
+      "imagen": "assets/aves/martin-pescador.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: cría en cavidades o taludes; los pollos permanecen dentro hasta tener plumas completas.",
+        "que_hacer": "Si encuentras un pollo fuera de su cavidad y no se puede devolver con seguridad, llama a un CRAS. No lo alimentes."
+      }
     },
     {
       "id": "vencejo-palido",
@@ -1269,7 +1459,12 @@
         ]
       },
       "cuando_derivar_cras": "Un vencejo en el suelo SIEMPRE necesita ayuda — no puede despegar por sí mismo desde una superficie plana. Deriva de inmediato",
-      "imagen": "assets/aves/vencejo-palido.jpg"
+      "imagen": "assets/aves/vencejo-palido.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola y de vida aérea: los adultos pasan casi toda la vida volando y tienen las patas muy cortas.",
+        "que_hacer": "Un vencejo o ave similar en el suelo no puede despegar por sí mismo. No lo lances al aire ni lo alimentes: guárdalo en una caja oscura y ventilada y llama a un CRAS."
+      }
     },
     {
       "id": "milano-negro",
@@ -1303,7 +1498,12 @@
       },
       "riesgo_imprentacion": "Alto. Manipulación mínima e imprescindible únicamente, sin contacto visual prolongado. Un ejemplar improntado puede quedar inhabilitado para ser liberado de por vida.",
       "cuando_derivar_cras": "Siempre, sin excepción — rapaz protegida de tamaño considerable, requiere personal especializado. Usa guantes gruesos si tienes que moverla por seguridad",
-      "imagen": "assets/aves/milano-negro.jpg"
+      "imagen": "assets/aves/milano-negro.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: los pollos permanecen en el nido hasta que son casi adultos.",
+        "que_hacer": "Un pollo de rapaz en el suelo sí suele necesitar ayuda: si está a la vista y el nido es accesible sin riesgo, devuélvelo; si no, llama a un CRAS. No le des comida ni agua."
+      }
     },
     {
       "id": "buho-chico",
@@ -1337,7 +1537,12 @@
       },
       "riesgo_imprentacion": "Alto. Manipulación mínima imprescindible únicamente.",
       "cuando_derivar_cras": "Siempre, sin excepción — rapaz protegida, requiere centro especializado en rapaces nocturnas",
-      "imagen": "assets/aves/buho-chico.jpg"
+      "imagen": "assets/aves/buho-chico.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola, pero los pollos «ramean»: salen del nido trepando por las ramas antes de volar y los padres los siguen alimentando de noche.",
+        "que_hacer": "Un pollo con plumón o plumas a medias en una rama o en el suelo no está necesariamente abandonado. Si no está herido, déjalo (o súbelo a una rama cercana sin dejarlo cerca de gatos) y observa de lejos. Si está herido o expuesto a peligro, CRAS."
+      }
     },
     {
       "id": "carabo-comun",
@@ -1371,7 +1576,12 @@
       },
       "riesgo_imprentacion": "Alto. Manipulación mínima imprescindible únicamente.",
       "cuando_derivar_cras": "Siempre, sin excepción — rapaz protegida, requiere centro especializado",
-      "imagen": "assets/aves/carabo-comun.jpg"
+      "imagen": "assets/aves/carabo-comun.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola, pero los pollos «ramean»: salen del nido trepando por las ramas antes de volar y los padres los siguen alimentando de noche.",
+        "que_hacer": "Un pollo con plumón o plumas a medias en una rama o en el suelo no está necesariamente abandonado. Si no está herido, déjalo (o súbelo a una rama cercana sin dejarlo cerca de gatos) y observa de lejos. Si está herido o expuesto a peligro, CRAS."
+      }
     },
     {
       "id": "mochuelo-europeo",
@@ -1404,7 +1614,12 @@
       },
       "riesgo_imprentacion": "Alto, a pesar de su tamaño pequeño. Manipulación mínima imprescindible únicamente.",
       "cuando_derivar_cras": "Siempre, sin excepción — rapaz protegida, requiere centro especializado",
-      "imagen": "assets/aves/mochuelo-europeo.jpg"
+      "imagen": "assets/aves/mochuelo-europeo.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola, pero los pollos «ramean»: salen del nido trepando por las ramas antes de volar y los padres los siguen alimentando de noche.",
+        "que_hacer": "Un pollo con plumón o plumas a medias en una rama o en el suelo no está necesariamente abandonado. Si no está herido, déjalo (o súbelo a una rama cercana sin dejarlo cerca de gatos) y observa de lejos. Si está herido o expuesto a peligro, CRAS."
+      }
     },
     {
       "id": "gaviota-patiamarilla",
@@ -1437,7 +1652,12 @@
         ]
       },
       "cuando_derivar_cras": "Ala caída, sangrado, o pico dañado (depende de él para comer). Los juveniles caídos de tejados en ciudades costeras son un caso frecuente",
-      "imagen": "assets/aves/gaviota-patiamarilla.jpg"
+      "imagen": "assets/aves/gaviota-patiamarilla.jpg",
+      "desarrollo": {
+        "tipo": "semi-nidifugo",
+        "descripcion": "Semi-nidífuga: el pollo abandona el nido a los pocos días y se esconde cerca, pero los padres lo siguen alimentando hasta que vuela.",
+        "que_hacer": "Un pollo de gaviota caminando por un tejado, un patio o la acera suele ser normal. Déjalo salvo que esté herido, en una carretera o a merced de perros y gatos; en ese caso, CRAS. No le des pescado ni pan."
+      }
     },
     {
       "id": "cuco-comun",
@@ -1469,7 +1689,12 @@
         ]
       },
       "cuando_derivar_cras": "Ala caída, sangrado, o si no gana peso en 48h",
-      "imagen": "assets/aves/cuco-comun.jpg"
+      "imagen": "assets/aves/cuco-comun.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: cría en cavidades o taludes; los pollos permanecen dentro hasta tener plumas completas.",
+        "que_hacer": "Si encuentras un pollo fuera de su cavidad y no se puede devolver con seguridad, llama a un CRAS. No lo alimentes."
+      }
     },
     {
       "id": "oropendola",
@@ -1501,7 +1726,12 @@
         ]
       },
       "cuando_derivar_cras": "Ala caída, sangrado, o si no gana peso en 48h",
-      "imagen": "assets/aves/oropendola.jpg"
+      "imagen": "assets/aves/oropendola.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "buitre-leonado",
@@ -1535,7 +1765,12 @@
       },
       "riesgo_imprentacion": "No aplica del mismo modo que en pájaros pequeños, pero el riesgo real aquí es otro: un buitre leonado herido o caído puede indicar un caso de envenenamiento, un delito ambiental grave que investiga SEPRONA. No lo muevas del sitio si no es imprescindible y no le des nada de comer ni beber.",
       "cuando_derivar_cras": "SIEMPRE, y con máxima precaución: es un ave enorme y peligrosa de manejar por su tamaño, pico y garras — usa guantes gruesos y protección ocular si por seguridad tienes que moverlo (por ejemplo, de una carretera), y llama de inmediato al 062 (Guardia Civil) o al 112. No intentes manipularlo más de lo estrictamente necesario",
-      "imagen": "assets/aves/buitre-leonado.jpg"
+      "imagen": "assets/aves/buitre-leonado.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: los pollos permanecen en el nido hasta que son casi adultos.",
+        "que_hacer": "Un pollo de rapaz en el suelo sí suele necesitar ayuda: si está a la vista y el nido es accesible sin riesgo, devuélvelo; si no, llama a un CRAS. No le des comida ni agua."
+      }
     },
     {
       "id": "picogordo",
@@ -1567,7 +1802,12 @@
         ]
       },
       "cuando_derivar_cras": "Ala caída, sangrado, o si no gana peso en 48h. Cuidado al manipular: el pico muerde con fuerza real",
-      "imagen": "assets/aves/picogordo.jpg"
+      "imagen": "assets/aves/picogordo.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: nace casi sin plumas y dependiente. Pero los volantones (con plumas, cola corta, que saltan y piden comida) dejan el nido ANTES de saber volar y los padres siguen cuidándolos desde cerca.",
+        "que_hacer": "Si tiene plumas y salta o aletea: déjalo donde está (si hay peligro inmediato, súbelo a un arbusto cercano) y vigila de lejos. Si está sin plumas o con plumón y ves el nido, devuélvelo; los padres no lo rechazan por tocarlo. Solo a un CRAS si está herido, empapado, frío o lleva horas solo."
+      }
     },
     {
       "id": "paloma-zurita",
@@ -1599,7 +1839,12 @@
         ]
       },
       "cuando_derivar_cras": "Buche hinchado, heridas, o dificultad para tragar",
-      "imagen": "assets/aves/paloma-zurita.jpg"
+      "imagen": "assets/aves/paloma-zurita.jpg",
+      "desarrollo": {
+        "tipo": "nidicola",
+        "descripcion": "Nidícola: el pichón se alimenta de «leche de buche» de los padres y tarda semanas en volar; es normal verlo en el suelo si ya tiene plumas.",
+        "que_hacer": "Si está emplumado y activo, déjalo y observa. Si es un pichón implume o está herido, llama a un CRAS: la alimentación manual de palomas es delicada y no conviene improvisarla."
+      }
     },
     {
       "id": "focha-comun",
@@ -1631,7 +1876,12 @@
         ]
       },
       "cuando_derivar_cras": "A diferencia de las aves terrestres, necesita acceso a agua poco profunda para mantener el plumaje — no la mantengas en caja seca cerrada mucho tiempo. Deriva pronto si no puede nadar con normalidad o tiene heridas visibles",
-      "imagen": "assets/aves/focha-comun.jpg"
+      "imagen": "assets/aves/focha-comun.jpg",
+      "desarrollo": {
+        "tipo": "nidifugo",
+        "descripcion": "Nidífuga: los pollos salen del nido a las pocas horas y siguen a los padres, que los alimentan.",
+        "que_hacer": "Un polluelo solo y activo cerca del agua suele tener a sus padres cerca: observa un buen rato antes de actuar. Si está herido, empapado y frío o lejos del agua, llama a un CRAS."
+      }
     }
   ]
 }
