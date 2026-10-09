@@ -96,7 +96,8 @@
     <p class="q-help">Mira sobre todo las alas y la cola.</p>
     <div class="q-options">
       <button class="q-option" data-answer="plumon">Solo plumón, casi sin plumas — parece recién salido del huevo</button>
-      <button class="q-option" data-answer="plumas">Ya tiene plumas visibles, aunque no vuele bien todavía</button>
+      <button class="q-option" data-answer="plumas">Ya tiene plumas visibles, cola corta, aunque no vuele bien todavía</button>
+      <button class="q-option" data-answer="adulto">Parece un adulto (plumaje completo, cola larga) y no echa a volar cuando me acerco</button>
     </div>
   </div>
 
@@ -111,7 +112,7 @@
 
   <div class="q-step" data-step="2">
     <h2>¿Salta, aletea o se mueve con soltura por el suelo?</h2>
-    <p class="q-help">Un volantón sano se desplaza a saltos, aunque no vuele todavía.</p>
+    <p class="q-help">Un volantón sano se desplaza a saltos, aunque no vuele todavía. Si se queda quieto porque estás cerca, aléjate unos minutos y vuelve a mirar.</p>
     <div class="q-options">
       <button class="q-option" data-answer="si">Sí, salta y se mueve con energía</button>
       <button class="q-option" data-answer="no">No, apenas se mueve o está muy quieto</button>
@@ -119,10 +120,11 @@
   </div>
 
   <div class="q-step" data-step="3">
-    <h2>¿Ves sangre, un ala en posición anormal, o algún animal (gato, perro) cerca?</h2>
+    <h2>¿Está herida o hay algún peligro cerca?</h2>
     <p class="q-help">Esto cambia la respuesta sin importar lo anterior.</p>
     <div class="q-options">
-      <button class="q-option" data-answer="si">Sí, hay algún peligro o herida visible</button>
+      <button class="q-option" data-answer="herida">Sí, hay sangre, un ala o una pata en mala posición, o parece enferma</button>
+      <button class="q-option" data-answer="peligro">No parece herida, pero hay un gato, un perro o tráfico cerca</button>
       <button class="q-option" data-answer="no">No, no veo nada de eso</button>
     </div>
   </div>
@@ -153,7 +155,9 @@
 /*
  * Lógica de decisión (simplificada, basada en criterios estándar de rehabilitación de fauna):
  *
- * - Si hay peligro/herida visible (pregunta 4 = sí) → SIEMPRE intervenir, sin importar el resto.
+ * - Si hay herida visible o parece enferma (pregunta 4 = herida) → SIEMPRE intervenir, sin importar el resto.
+ * - Si parece un adulto que no echa a volar → intervenir (un adulto sano huye); se salta a la pregunta de herida/peligro.
+ * - Si solo hay un peligro cercano (gato, perro, tráfico) sin herida → se aplica la lógica normal, pero el consejo es ponerla a cubierto cerca, no llevarla a un CRAS.
  * - Si es solo plumón (nidícola, no debería estar fuera del nido):
  *     - Si se ve el nido accesible → devolver al nido (no es "intervenir", es la mejor opción).
  *     - Si no se ve el nido → intervenir (no puede sobrevivir solo en el suelo).
@@ -185,10 +189,18 @@ document.querySelectorAll('.q-option').forEach(btn => {
     const step = steps[currentStep];
     answers[step] = btn.dataset.answer;
 
-    // La pregunta de peligro (paso 3) manda siempre, sin importar el resto
-    if (step === "3" && btn.dataset.answer === "si") {
+    // La pregunta de herida (paso 3) manda siempre, sin importar el resto
+    if (step === "3" && btn.dataset.answer === "herida") {
       currentStep++; // contar esta pregunta como respondida antes de pintar la barra
-      showResult("intervenir", "Hay un riesgo inmediato — actúa ya");
+      showResult("intervenir", "Necesita ayuda — actúa ya");
+      return;
+    }
+
+    // Un adulto no necesita las preguntas del nido ni de movimiento: saltamos a herida/peligro
+    if (step === "0" && btn.dataset.answer === "adulto") {
+      currentStep = steps.indexOf("3");
+      updateProgress();
+      showStep("3");
       return;
     }
 
@@ -203,7 +215,10 @@ document.querySelectorAll('.q-option').forEach(btn => {
 });
 
 function resolveResult() {
-  if (answers["0"] === "plumon") {
+  const hayPeligro = answers["3"] === "peligro";
+  if (answers["0"] === "adulto") {
+    showResult("intervenir", "Un adulto sano echa a volar — algo le pasa");
+  } else if (answers["0"] === "plumon") {
     if (answers["1"] === "si") {
       showResult("nido", "Devuélvelo al nido si puedes hacerlo con seguridad");
     } else {
@@ -211,7 +226,11 @@ function resolveResult() {
     }
   } else {
     if (answers["2"] === "si") {
-      showResult("vigilar", "Probablemente no necesita tu ayuda");
+      if (hayPeligro) {
+        showResult("cubierto", "Está bien, pero ponla a cubierto");
+      } else {
+        showResult("vigilar", "Probablemente no necesita tu ayuda");
+      }
     } else {
       showResult("intervenir", "Algo no va bien — necesita tu ayuda");
     }
@@ -227,20 +246,26 @@ function showResult(type, title) {
     vigilar: {
       cls: "ok",
       icon: "🌿",
-      body: "Los volantones pasan varios días en el suelo aprendiendo a volar mientras sus padres los siguen alimentando desde cerca. Retírate al menos 10 metros y observa 30-60 minutos sin intervenir. Si tienes un gato, mantenlo dentro mientras tanto. Si tras ese tiempo sigue igual, sin comer y sin que ningún adulto se acerque, vuelve a hacer este checklist.",
-      actions: '<a href="index.html" class="btn btn-outline">Volver al inicio</a>'
+      body: "Los volantones pasan varios días en el suelo aprendiendo a volar mientras sus padres los siguen alimentando desde cerca. Retírate al menos 10 metros y observa 30-60 minutos sin intervenir. Si tienes un gato, mantenlo dentro mientras tanto. Si tras ese tiempo sigue exactamente igual, sin que ningún adulto se acerque, o si empeora, llama a tu CRAS para consultarlo.",
+      actions: '<a href="mapa-cras.html" class="btn btn-outline">Buscar mi CRAS</a> <a href="index.html" class="btn btn-outline">Volver al inicio</a>'
+    },
+    cubierto: {
+      cls: "ok",
+      icon: "🌿",
+      body: "Parece un volantón sano, pero hay un peligro cerca. Si puedes, aleja al gato o al perro. Si está en un sitio con tráfico o sin ninguna protección, colócalo con cuidado en un arbusto o rama baja a pocos metros, a cubierto y cerca de donde estaba, para que sus padres lo encuentren. Después retírate y observa de lejos. No lo lleves a casa. Si no está claro, llama a tu CRAS.",
+      actions: '<a href="mapa-cras.html" class="btn btn-outline">Buscar mi CRAS</a> <a href="index.html" class="btn btn-outline">Volver al inicio</a>'
     },
     nido: {
       cls: "ok",
       icon: "🪺",
-      body: "Con las manos limpias o guantes, colócalo de nuevo en el nido con cuidado. Es un mito que el olor humano haga que los padres lo abandonen. Si el nido se ha caído entero, puedes fijar una cestita pequeña con agujeros de drenaje en el mismo árbol, lo más cerca posible del sitio original.",
-      actions: '<a href="guia.html" class="btn btn-outline">Ver guía de especies</a>'
+      body: "Con las manos limpias o guantes, colócalo de nuevo en el nido con cuidado. Es un mito que el olor humano haga que los padres lo abandonen. Si el nido se ha caído entero, puedes fijar una cestita pequeña con agujeros de drenaje en el mismo árbol, lo más cerca posible del sitio original. Si el nido no es accesible sin riesgo para ti (escalera inestable, altura), o si el pollo está frío, flojo o herido, no insistas: llama a tu CRAS.",
+      actions: '<a href="mapa-cras.html" class="btn btn-outline">Buscar mi CRAS</a> <a href="guia.html" class="btn btn-outline">Ver guía de especies</a> <a href="emergencia.html" class="btn btn-urgent">Está frío o herido</a>'
     },
     intervenir: {
       cls: "warn",
       icon: "⚠️",
-      body: "Este caso sí necesita tu ayuda. Ve al protocolo de primeros auxilios: cómo sujetarlo, en qué guardarlo mientras lo trasladas, y qué NO hacer en las primeras horas.",
-      actions: '<a href="emergencia.html" class="btn btn-urgent">Ir a primeros auxilios</a> <a href="guia.html" class="btn btn-outline">Identificar la especie</a>'
+      body: "Este caso sí necesita tu ayuda. Ve al protocolo de primeros auxilios: cómo sujetarla, en qué guardarla mientras la trasladas, y qué NO hacer en las primeras horas. En la mayoría de los casos el siguiente paso es un centro de recuperación, así que llama antes de desplazarte. Excepción: un pollo de búho, cárabo o mochuelo con plumón sobre una rama suele estar bien; si es tu caso, déjalo y observa de lejos.",
+      actions: '<a href="emergencia.html" class="btn btn-urgent">Ir a primeros auxilios</a> <a href="mapa-cras.html" class="btn btn-outline">Buscar mi CRAS</a>'
     }
   };
 

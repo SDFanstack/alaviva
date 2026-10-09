@@ -106,7 +106,7 @@ function addMessage(role, text) {
 
 addMessage('assistant', especieId
   ? 'Hola. Veo que vienes desde la ficha de "' + especieId.replace(/-/g, ' ') + '" — cuéntame tu duda.'
-  : 'Hola, soy el asistente de AlaViva. Pregúntame sobre primeros auxilios, alimentación de urgencia o cómo identificar el ave.');
+  : 'Hola, soy el asistente de AlaViva. Pregúntame sobre primeros auxilios, alimentación de urgencia o cómo identificar el ave. Si el ave sangra o no se mueve, ve antes a «Emergencia». Y no incluyas datos personales en tus mensajes.');
 
 chatForm.addEventListener('submit', async (e) => {
   e.preventDefault();
