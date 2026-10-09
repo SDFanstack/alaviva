@@ -169,7 +169,7 @@ ${HEADER}
 
   <div class="caja nota">
     <h2>Lo primero</h2>
-    <p>Un ave silvestre no es una mascota y lo habitual es que deba acabar en un centro de recuperación (CRAS). Antes de recogerla, comprueba si de verdad necesita ayuda con el <a href="/checklist.html">checklist</a>. Esta ficha es orientativa y no sustituye a un profesional.</p>
+    <p>Muchas aves que parecen abandonadas no necesitan ayuda: antes de recogerla, usa el <a href="/checklist.html">checklist</a> para comprobar si de verdad la necesita. Si está herida o enferma, lo correcto es llevarla a un centro de recuperación (CRAS). Un ave silvestre no es una mascota y, por ley, no puedes quedártela. Esta ficha es orientativa y no sustituye a un profesional.</p>
   </div>
 
   ${d ? `<div class="caja cria">
