@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AlaViva — Primeros auxilios para un ave caída</title>
 <meta name="description" content="Encuentra un ave caída o herida en España: checklist de decisión, primeros auxilios, identificación de especie y tu centro de recuperación (CRAS) más cercano.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AlaViva">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="AlaViva — Primeros auxilios para un ave caída">
+<meta property="og:description" content="Encuentra un ave caída o herida en España: checklist de decisión, primeros auxilios, identificación de especie y tu centro de recuperación (CRAS) más cercano.">
+<meta property="og:url" content="https://alaviva.pages.dev/">
+<meta property="og:image" content="https://alaviva.pages.dev/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://alaviva.pages.dev/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -23,8 +34,14 @@
   /* Estilos específicos de la home — todo lo compartido vive en assets/styles.css */
   .hero { padding: 72px 0 64px; }
   .hero .eyebrow { color: var(--accent); font-weight: 600; margin-bottom: 14px; }
-  .hero h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); font-weight: 600; max-width: 16ch; margin-bottom: 18px; }
+  .hero h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); font-weight: 600; max-width: 20ch; margin-bottom: 18px; }
   .hero p.lede { color: var(--ink-soft); font-size: 1.1rem; max-width: 46ch; margin-bottom: 40px; }
+
+  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 26px; }
+  .btn-big { padding: 17px 30px; font-size: 1.05rem; border-radius: 10px; }
+  .quick-links { list-style: none; display: flex; gap: 10px 22px; flex-wrap: wrap; }
+  .quick-links a { color: var(--primary); font-weight: 600; font-size: 0.95rem; }
+  @media (max-width: 640px) { .hero-cta .btn { width: 100%; text-align: center; white-space: normal; } }
 
   .triage { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 720px; }
   .triage-card {
@@ -62,6 +79,9 @@
   section.chat-teaser p { color: #D7E0D4; max-width: 40ch; margin-top: 10px; }
   .cta-group { display: flex; gap: 12px; flex-wrap: wrap; }
 </style>
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#2F4A3D">
+<link rel="icon" href="/assets/icons/icon-192.png">
 </head>
 <body>
 
@@ -75,6 +95,7 @@
       </svg>
       AlaViva
     </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <nav class="site-nav" aria-label="Navegación principal">
       <a href="index.html" aria-current="page">Inicio</a>
       <a href="checklist.html">¿Necesita ayuda?</a>
@@ -90,22 +111,21 @@
 <main id="contenido">
 <section class="hero">
   <div class="wrap">
-    <p class="eyebrow mono">AlaViva — primeros auxilios para fauna</p>
-    <h1>Cada ave, una guía.<br><span style="color: var(--accent);">Cada guía, una segunda oportunidad.</span></h1>
-    <p class="lede">Primeros auxilios claros para las primeras horas — y te decimos, sin rodeos, cuándo (casi siempre) el siguiente paso es un centro de recuperación profesional.</p>
+    <p class="eyebrow mono">AlaViva — cada ave, una segunda oportunidad</p>
+    <h1>¿Has encontrado un ave caída o herida?</h1>
+    <p class="lede">Te ayudamos a decidir qué hacer en los primeros minutos y cuándo llevarla a un centro de recuperación (CRAS). Gratis, en español y pensado para usarlo con el ave delante.</p>
 
-    <div class="triage">
-      <a href="emergencia.html" class="triage-card urgent">
-        <span class="mono">Empezar aquí</span>
-        <h3>Está herida o en peligro</h3>
-        <p>Sangra, no se mueve, hay un gato o un coche cerca. Te decimos qué hacer ya mismo.</p>
-      </a>
-      <a href="checklist.html" class="triage-card calm">
-        <span class="mono">Sin urgencia</span>
-        <h3>Parece sana, solo caída</h3>
-        <p>Antes de intervenir, comprobemos si de verdad necesita tu ayuda.</p>
-      </a>
+    <div class="hero-cta">
+      <a href="checklist.html" class="btn btn-big">Tengo un ave delante</a>
+      <a href="emergencia.html" class="btn btn-urgent btn-big">Está herida o en peligro</a>
     </div>
+
+    <ul class="quick-links" aria-label="Otras herramientas">
+      <li><a href="identificar.html">Identificar por foto</a></li>
+      <li><a href="mapa-cras.html">Buscar mi CRAS</a></li>
+      <li><a href="guia.html">Guía de 50 especies</a></li>
+      <li><a href="chat.html">Preguntar al chat</a></li>
+    </ul>
   </div>
 </section>
 
@@ -113,11 +133,11 @@
   <div class="wrap">
     <div class="aviso-box">
       <div class="aviso-item">
-        <span class="mono">Antes de nada</span>
+        <span class="mono">Importante: la ley</span>
         <p><strong>Un ave silvestre no es una mascota.</strong> En España, la fauna silvestre está protegida por ley: lo habitual es que un particular no pueda quedarse con un ave para criarla en casa. AlaViva te ayuda con los primeros cuidados mientras contactas con un centro autorizado (CRAS) — la meta es siempre entregarla a profesionales, no sustituirlos.</p>
       </div>
       <div class="aviso-item">
-        <span class="mono">Higiene</span>
+        <span class="mono">Al tocar el ave</span>
         <p><strong>Lávate las manos antes y después de tocar el ave</strong>, a ser posible con guantes. Las aves silvestres pueden transportar parásitos o enfermedades transmisibles a personas. Evita el contacto con la cara y no comas mientras la manipulas.</p>
       </div>
     </div>
@@ -137,12 +157,12 @@
       <div class="step">
         <span class="num">02</span>
         <h3>Identifica la especie</h3>
-        <p>Consulta la guía de especies habituales para saber qué es, qué come y cómo tratarla mientras la trasladas.</p>
+        <p>Sube una foto o consulta la guía de especies para saber qué es, qué come y cómo tratarla mientras la trasladas.</p>
       </div>
       <div class="step">
         <span class="num">03</span>
         <h3>Encuentra tu CRAS</h3>
-        <p>Cuidados para las próximas horas y los pasos para entregarla a tu centro de recuperación más cercano.</p>
+        <p>Localiza en el mapa el centro de recuperación de tu comunidad y llévale el ave, con los cuidados básicos para el trayecto.</p>
       </div>
     </div>
   </div>
@@ -170,7 +190,7 @@
         <div class="ficha-grid" style="margin-top: 22px;">
           <div class="ficha-field">
             <span class="mono">Tipo de papilla</span>
-            <span class="val">Mezcla de semillas trituradas + papilla de cría insectívora, proporción 70/30</span>
+            <span class="val">Semillas trituradas mezcladas con papilla de cría para insectívoros (proporción 70/30)</span>
           </div>
           <div class="ficha-field">
             <span class="mono">Peso de referencia (adulto)</span>
@@ -212,11 +232,34 @@
   <div class="wrap">
     <div class="foot-row">
       <p class="mono">AlaViva</p>
-      <p>Hecho para ayudar a la fauna silvestre local</p>
+      <p>Proyecto independiente y gratuito</p>
     </div>
     <p class="disclaimer">AlaViva ofrece primeros auxilios orientativos, no sustituye a un centro de recuperación de fauna silvestre (CRAS) ni a asesoría veterinaria profesional. En España, la tenencia de fauna silvestre sin autorización está regulada por ley: la meta de esta guía es siempre ayudarte a entregar el ave a profesionales, no a criarla en casa. Manipula siempre con las manos limpias o guantes.</p>
+    <p class="foot-links"><a href="sobre.html">Sobre AlaViva</a> · <a href="sobre.html#fuentes">Fuentes</a> · <a href="sobre.html#privacidad">Privacidad</a></p>
   </div>
 </footer>
 
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
+}
+</script>
+<script>
+const navToggle = document.getElementById('navToggle');
+const siteNav = document.querySelector('.site-nav');
+if (navToggle && siteNav) {
+  navToggle.addEventListener('click', () => {
+    const abierto = siteNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(abierto));
+  });
+  // Cierra el menú al tocar cualquier enlace
+  siteNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      siteNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+</script>
 </body>
 </html>

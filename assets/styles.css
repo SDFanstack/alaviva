@@ -52,6 +52,29 @@ nav.site-nav a { text-decoration: none; color: var(--ink-soft); font-size: 0.95r
 nav.site-nav a:hover, nav.site-nav a:focus-visible { color: var(--primary); }
 nav.site-nav a[aria-current="page"] { color: var(--primary); font-weight: 700; }
 
+/* Menú hamburguesa — solo aparece en móvil */
+.nav-toggle {
+  display: none;
+  background: none; border: 1px solid var(--line); border-radius: 8px;
+  padding: 8px 12px; font-size: 1.1rem; cursor: pointer; color: var(--primary);
+  font-family: inherit;
+}
+@media (max-width: 720px) {
+  .nav-toggle { display: block; }
+  nav.site-nav {
+    display: none;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--bg-card); border-bottom: 1px solid var(--line);
+    flex-direction: column; gap: 0; padding: 8px 0;
+    box-shadow: 0 8px 16px rgba(31,42,34,0.08);
+    z-index: 50;
+  }
+  nav.site-nav.open { display: flex; }
+  nav.site-nav a { padding: 14px 24px; border-bottom: 1px solid var(--line); }
+  nav.site-nav a:last-child { border-bottom: none; }
+  header.site .wrap { position: relative; }
+}
+
 /* Page head genérico (para páginas internas) */
 .page-head { padding: 56px 0 40px; }
 .page-head p.eyebrow { color: var(--accent); font-weight: 600; margin-bottom: 12px; }
@@ -156,6 +179,10 @@ footer.site .wrap { display: flex; flex-direction: column; align-items: flex-sta
 footer.site .foot-row { display: flex; justify-content: space-between; width: 100%; flex-wrap: wrap; gap: 8px; }
 footer.site p { color: var(--ink-soft); font-size: 0.85rem; }
 footer.site .disclaimer { max-width: 70ch; font-size: 0.82rem; color: var(--ink-soft); margin-top: 10px; }
+
+footer.site .foot-links { margin-top: 10px; font-size: 0.85rem; }
+footer.site .foot-links a { color: var(--ink-soft); }
+footer.site .foot-links a:hover, footer.site .foot-links a:focus-visible { color: var(--primary); }
 
 /* Utilidades */
 .sr-only {

@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AlaViva — Identificar por foto</title>
 <meta name="description" content="Sube una foto del ave y te ayudamos a reducir los candidatos de especie.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AlaViva">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="AlaViva — Identificar por foto">
+<meta property="og:description" content="Sube una foto del ave y te ayudamos a reducir los candidatos de especie.">
+<meta property="og:url" content="https://alaviva.pages.dev/identificar.html">
+<meta property="og:image" content="https://alaviva.pages.dev/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://alaviva.pages.dev/identificar.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -39,12 +50,16 @@
   .confianza.media { background: var(--accent-soft); color: var(--accent); }
   .confianza.baja { background: var(--urgent-soft); color: var(--urgent); }
 </style>
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#2F4A3D">
+<link rel="icon" href="/assets/icons/icon-192.png">
 </head>
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 <header class="site"><div class="wrap">
   <a href="index.html" class="logo"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 15C6 8 11 4 21 4C19 9 16 12 12 13.5C15 14 17.5 14 20 13C17 19 11 21 3 15Z" fill="#2F4A3D"/></svg>AlaViva</a>
-  <nav class="site-nav" aria-label="Navegación principal">
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="site-nav" aria-label="Navegación principal">
     <a href="index.html">Inicio</a><a href="checklist.html">¿Necesita ayuda?</a><a href="identificar.html" aria-current="page">Identificar</a>
     <a href="guia.html">Guía de especies</a><a href="mapa-cras.html">CRAS</a><a href="emergencia.html">Emergencia</a><a href="chat.html">Chat</a>
   </nav>
@@ -88,6 +103,7 @@
 <footer class="site"><div class="wrap">
   <div class="foot-row"><p class="mono">AlaViva</p><p>Identificación orientativa, no infalible</p></div>
   <p class="disclaimer">La identificación por IA es una ayuda, no una certeza absoluta. Confirma siempre con la ficha completa y, ante cualquier duda sobre el manejo, contacta con tu CRAS.</p>
+    <p class="foot-links"><a href="sobre.html">Sobre AlaViva</a> · <a href="sobre.html#fuentes">Fuentes</a> · <a href="sobre.html#privacidad">Privacidad</a></p>
 </div></footer>
 
 <script>
@@ -199,6 +215,28 @@ function fileToBase64(file) {
     reader.onload = () => resolve(reader.result.split(',')[1]);
     reader.onerror = reject;
     reader.readAsDataURL(file);
+  });
+}
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
+}
+</script>
+<script>
+const navToggle = document.getElementById('navToggle');
+const siteNav = document.querySelector('.site-nav');
+if (navToggle && siteNav) {
+  navToggle.addEventListener('click', () => {
+    const abierto = siteNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(abierto));
+  });
+  // Cierra el menú al tocar cualquier enlace
+  siteNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      siteNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
   });
 }
 </script>

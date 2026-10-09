@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AlaViva — ¿De verdad necesita ayuda?</title>
 <meta name="description" content="Antes de intervenir: comprueba si el ave que has encontrado realmente necesita tu ayuda o si sus padres siguen cuidándola.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AlaViva">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="AlaViva — ¿De verdad necesita ayuda?">
+<meta property="og:description" content="Antes de intervenir: comprueba si el ave que has encontrado realmente necesita tu ayuda o si sus padres siguen cuidándola.">
+<meta property="og:url" content="https://alaviva.pages.dev/checklist.html">
+<meta property="og:image" content="https://alaviva.pages.dev/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://alaviva.pages.dev/checklist.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -42,6 +53,9 @@
     text-decoration: underline; cursor: pointer; font-size: 0.9rem;
   }
 </style>
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#2F4A3D">
+<link rel="icon" href="/assets/icons/icon-192.png">
 </head>
 <body>
 
@@ -55,6 +69,7 @@
       </svg>
       AlaViva
     </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <nav class="site-nav" aria-label="Navegación principal">
       <a href="index.html">Inicio</a>
       <a href="checklist.html" aria-current="page">¿Necesita ayuda?</a>
@@ -130,6 +145,7 @@
       <p>Hecho para ayudar a la fauna silvestre local</p>
     </div>
     <p class="disclaimer">Este checklist orienta con los casos más comunes, no cubre absolutamente todas las situaciones. Ante cualquier duda seria, contactar con un CRAS es siempre la opción más segura.</p>
+    <p class="foot-links"><a href="sobre.html">Sobre AlaViva</a> · <a href="sobre.html#fuentes">Fuentes</a> · <a href="sobre.html#privacidad">Privacidad</a></p>
   </div>
 </footer>
 
@@ -247,5 +263,27 @@ document.getElementById('restartBtn').addEventListener('click', () => {
 updateProgress();
 </script>
 
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
+}
+</script>
+<script>
+const navToggle = document.getElementById('navToggle');
+const siteNav = document.querySelector('.site-nav');
+if (navToggle && siteNav) {
+  navToggle.addEventListener('click', () => {
+    const abierto = siteNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(abierto));
+  });
+  // Cierra el menú al tocar cualquier enlace
+  siteNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      siteNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+</script>
 </body>
 </html>
