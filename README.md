@@ -55,19 +55,8 @@ alaviva/
 ├── tools/                → generador de las páginas de especie y del sitemap
 ├── assets/               → estilos, iconos, imagen para compartir, fotos de aves
 ├── manifest.json, sw.js  → PWA
-├── worker/               → backend de IA (Cloudflare Worker) — se despliega aparte
-└── AUDITORIA.md          → auditoría de producto y roadmap
+└── worker/               → backend de IA (Cloudflare Worker), se despliega aparte
 ```
-
-## Cómo actualizar el contenido
-
-1. Edita `especies.json` (un dato nuevo, una especie, una corrección).
-2. Regenera las páginas y el sitemap desde la raíz del proyecto:
-   ```
-   node tools/generar-especies.mjs
-   ```
-3. Si cambias especies, el Worker también necesita saberlo: regenera `worker/src/especies_compact.js` y despliega con `npx wrangler deploy` dentro de `worker/`.
-4. `git add .`, `git commit` y `git push`: Cloudflare Pages publica solo.
 
 ## Privacidad
 
@@ -75,7 +64,7 @@ Sin cuentas, sin cookies de seguimiento y sin analítica. Las fotos y mensajes d
 
 ## Estado del proyecto
 
-50 especies documentadas, mapa de CRAS de las 17 comunidades y las 2 ciudades autónomas, PWA instalable y páginas individuales por especie. Ver [`AUDITORIA.md`](./AUDITORIA.md) para el roadmap y las decisiones de producto.
+50 especies documentadas, mapa de CRAS de las 17 comunidades y las 2 ciudades autónomas, PWA instalable y páginas individuales por especie. El proyecto sigue en mejora continua.
 
 ## Contribuir
 
