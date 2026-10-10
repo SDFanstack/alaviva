@@ -297,6 +297,7 @@ function showDetail(especie) {
     <div class="cta-row" style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;">
       <a href="especies/${especie.id}.html" class="btn">Página completa de la especie</a>
       <a href="mapa-cras.html" class="btn btn-outline">Buscar mi CRAS</a>
+      <button type="button" class="btn btn-outline share-btn" data-title="${especie.nombre_comun} — AlaViva" data-text="${especie.nombre_comun}: qué hacer y cuándo llevarla a un CRAS, en AlaViva." data-url="https://alaviva.pages.dev/especies/${especie.id}.html" aria-expanded="false">Compartir</button>
       <a href="emergencia.html" class="btn btn-outline">Ver primeros auxilios</a>
     </div>
   `;
@@ -339,6 +340,7 @@ if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
 }
 </script>
+<script src="assets/share.js" defer></script>
 <script>
 const navToggle = document.getElementById('navToggle');
 const siteNav = document.querySelector('.site-nav');

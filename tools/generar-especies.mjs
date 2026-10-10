@@ -44,7 +44,8 @@ const HEADER = `<header class="site">
   </div>
 </header>`;
 
-const SCRIPTS = `<script>
+const SCRIPTS = `<script src="/assets/share.js" defer></script>
+<script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
 }
@@ -209,6 +210,7 @@ ${HEADER}
     <a href="/checklist.html" class="btn">Hacer el checklist</a>
     <a href="/mapa-cras.html" class="btn btn-outline">Buscar mi CRAS</a>
     <a href="/identificar.html" class="btn btn-outline">Identificar por foto</a>
+    <button type="button" class="btn btn-outline share-btn" data-title="${esc(title)}" data-text="${n}: qué hacer y cuándo llevarla a un CRAS, en AlaViva." data-url="${url}" aria-expanded="false">Compartir</button>
   </div>
 
   ${otras.length ? `<h2>Otras especies de ${esc(e.familia.toLowerCase())}</h2>

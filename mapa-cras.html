@@ -163,6 +163,7 @@
 </footer>
 
 
+<script src="assets/share.js" defer></script>
 <script>
 // Datos verificados a fecha julio 2026 (GREFA / Vida Silvestre Ibérica / webs autonómicas).
 // Las comunidades sin centros confirmados aún se marcan como "pending".
@@ -313,6 +314,7 @@ function renderPanel(id) {
   // Aviso de dato incorrecto: abre un issue de GitHub ya rellenado con la comunidad
   const titulo = encodeURIComponent('Dato incorrecto en CRAS: ' + region.name);
   const cuerpo = encodeURIComponent('Comunidad: ' + region.name + '\n\nQué centro/dato está mal:\n\nDato correcto (y fuente si la tienes):\n');
+  html += '<div class="share-row"><button type="button" class="btn btn-outline btn-sm share-btn" data-hash="' + id + '" data-title="CRAS de ' + region.name + ' — AlaViva" data-text="Centros de recuperación de fauna silvestre de ' + region.name + ':" aria-expanded="false">Compartir esta comunidad</button></div>';
   html += '<a class="report-link" target="_blank" rel="noopener" href="https://github.com/SDFanstack/alaviva/issues/new?title=' + titulo + '&body=' + cuerpo + '">¿Algún dato está desactualizado? Avísanos</a>';
   document.getElementById('panel').innerHTML = html;
 }
@@ -327,6 +329,8 @@ function selectRegion(id, origen) {
     t.classList.toggle('active', on);
     if (t.classList.contains('reg')) t.setAttribute('aria-pressed', String(on));
   });
+  // Enlace directo: mapa-cras.html#galicia abre esa comunidad
+  if (origen !== 'hash') history.replaceState(null, '', '#' + id);
   const tileEl = origen === 'lista' ? document.querySelector('.tile[data-id="' + id + '"]') : null;
   positionPanel(tileEl);
   renderPanel(id);
@@ -375,6 +379,10 @@ if (puedeHover) {
     else document.getElementById('panel').innerHTML = PANEL_INICIAL;
   });
 }
+
+// Si la URL trae #comunidad, se abre directamente
+const idInicial = location.hash.slice(1);
+if (byId[idInicial]) selectRegion(idInicial, 'hash');
 </script>
 
 <script>
