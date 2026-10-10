@@ -37,6 +37,26 @@
   .hero h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); font-weight: 600; max-width: 20ch; margin-bottom: 18px; }
   .hero p.lede { color: var(--ink-soft); font-size: 1.1rem; max-width: 46ch; margin-bottom: 40px; }
 
+  /* --- Portada: líneas de aves detrás del contenido --- */
+  .intro { position: relative; overflow: hidden; }
+  .intro-lineas {
+    position: absolute; top: 0; left: 50%; width: 1440px; height: auto; max-width: none;
+    transform: translateX(-50%); pointer-events: none; z-index: 0; opacity: 1;
+  }
+  .intro .hero, .intro .aviso-legal { position: relative; z-index: 1; }
+  @media (min-width: 1180px) { .hero-text { max-width: 700px; margin: 0 auto; } }
+  @media (max-width: 1179px) { .intro-lineas { width: 1100px; } }
+  @media (max-width: 700px) { .intro-lineas { width: 800px; opacity: .8; } }
+  .hero .eyebrow { color: #9C5F17; }
+  .quick-links { gap: 8px 0; align-items: center; }
+  .quick-links li { display: flex; align-items: center; }
+  .quick-links li + li::before { content: ""; display: inline-block; width: 1px; height: 1em; background: var(--line); margin: 0 22px 0 0; }
+  @media (max-width: 640px) { .quick-links { gap: 8px 22px; } .quick-links li + li::before { display: none; } }
+  .aviso-box { border-left-width: 1px; border-left-color: var(--line); box-shadow: 0 2px 12px rgba(31,42,34,.05); }
+  .aviso-box .aviso-item .mono.aviso-t { display: flex; align-items: center; gap: 8px; color: #9C5F17; }
+  .aviso-box .aviso-item .mono.aviso-t.mano { color: var(--urgent); }
+  .aviso-box .aviso-t .ico { width: 18px; height: 18px; }
+  .aviso-box .aviso-item strong { color: var(--primary); }
   .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 26px; }
   .btn-big { padding: 17px 30px; font-size: 1.05rem; border-radius: 10px; }
   .quick-links { list-style: none; display: flex; gap: 10px 22px; flex-wrap: wrap; }
@@ -109,8 +129,12 @@
 </header>
 
 <main id="contenido">
+<div class="intro">
+<!-- Decoración: aves dibujadas con línea simple que cruzan por detrás del texto (SVG propio) -->
+<img class="intro-lineas" src="assets/deco/lineas.svg" alt="" aria-hidden="true">
 <section class="hero">
   <div class="wrap">
+   <div class="hero-text">
     <p class="eyebrow mono">AlaViva — cada ave, una segunda oportunidad</p>
     <h1>¿Has encontrado un ave caída o herida?</h1>
     <p class="lede">Te ayudamos a decidir qué hacer en los primeros minutos y cuándo llevarla a un centro de recuperación (CRAS). Gratis, en español y pensado para usarlo con el ave delante.</p>
@@ -126,6 +150,7 @@
       <li><a href="guia.html">Guía de 50 especies</a></li>
       <li><a href="chat.html">Preguntar al chat</a></li>
     </ul>
+   </div>
   </div>
 </section>
 
@@ -133,16 +158,17 @@
   <div class="wrap">
     <div class="aviso-box">
       <div class="aviso-item">
-        <span class="mono">Importante: la ley</span>
+        <span class="mono aviso-t ley"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 15C6 8 11 4 21 4C19 9 16 12 12 13.5C15 14 17.5 14 20 13C17 19 11 21 3 15Z" fill="currentColor"/></svg>Importante: la ley</span>
         <p><strong>Un ave silvestre no es una mascota.</strong> En España, la fauna silvestre está protegida por ley: lo habitual es que un particular no pueda quedarse con un ave para criarla en casa. AlaViva te ayuda con los primeros cuidados mientras contactas con un centro autorizado (CRAS) — si el ave necesita ayuda, la meta es entregarla a profesionales, no sustituirlos.</p>
       </div>
       <div class="aviso-item">
-        <span class="mono">Al tocar el ave</span>
+        <span class="mono aviso-t mano"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2 1.9 20.5h20.2L12 3.2Z" fill="currentColor"/><path d="M12 9.5v5M12 17.6v.1" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>Al tocar el ave</span>
         <p><strong>Lávate las manos antes y después de tocar el ave</strong>, a ser posible con guantes. Las aves silvestres pueden transportar parásitos o enfermedades transmisibles a personas. Evita el contacto con la cara y no comas mientras la manipulas.</p>
       </div>
     </div>
   </div>
 </section>
+</div><!-- /intro -->
 
 <section class="how" id="como-funciona">
   <div class="wrap">

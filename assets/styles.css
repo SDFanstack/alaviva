@@ -50,7 +50,7 @@ header.site .wrap { display: flex; align-items: center; justify-content: space-b
 nav.site-nav { display: flex; gap: 24px; flex-wrap: wrap; }
 nav.site-nav a { text-decoration: none; color: var(--ink-soft); font-size: 0.95rem; font-weight: 500; transition: color .15s; }
 nav.site-nav a:hover, nav.site-nav a:focus-visible { color: var(--primary); }
-nav.site-nav a[aria-current="page"] { color: var(--primary); font-weight: 700; }
+nav.site-nav a[aria-current="page"] { color: var(--primary); font-weight: 700; border-bottom: 2px solid var(--primary); padding-bottom: 6px; }
 
 /* Menú hamburguesa — solo aparece en móvil */
 .nav-toggle {
@@ -183,12 +183,6 @@ footer.site .disclaimer { max-width: 70ch; font-size: 0.82rem; color: var(--ink-
 footer.site .foot-links { margin-top: 10px; font-size: 0.85rem; }
 footer.site .foot-links a { color: var(--ink-soft); }
 footer.site .foot-links a:hover, footer.site .foot-links a:focus-visible { color: var(--primary); }
-
-/* Botón de compartir (assets/share.js) */
-.btn.btn-sm { padding: 8px 16px; font-size: 0.85rem; }
-.share-menu { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 10px; }
-.share-menu[hidden] { display: none; }
-.share-status { font-size: 0.85rem; color: var(--primary); font-weight: 600; }
 
 /* Utilidades */
 .sr-only {
