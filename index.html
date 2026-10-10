@@ -95,7 +95,7 @@
 <meta name="theme-color" content="#2F4A3D">
 <link rel="icon" href="/assets/icons/icon-192.png">
 </head>
-<body class="deco-home">
+<body>
 
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
@@ -169,6 +169,117 @@
         <span class="num">01</span>
         <h3>Comprueba si necesita ayuda</h3>
         <p>Muchos "rescates" son innecesarios: un volantón sano en el suelo sigue siendo alimentado por sus padres. El checklist te lo aclara en un minuto.</p>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <h3>Identifica la especie</h3>
+        <p>Sube una foto o consulta la guía de especies para saber qué es, qué come y cómo tratarla mientras la trasladas.</p>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <h3>Encuentra tu CRAS</h3>
+        <p>Localiza en el mapa el centro de recuperación de tu comunidad y llévale el ave, con los cuidados básicos para el trayecto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ficha-demo" id="ficha-demo">
+  <div class="wrap">
+    <h2>Así se ve una guía</h2>
+    <p class="sub">Un ejemplo de ficha — hay 50 especies reales ya disponibles en la guía completa.</p>
+
+    <div class="ficha">
+      <span class="ficha-tab">Ejemplo</span>
+      <div class="ficha-body">
+        <div class="ficha-head">
+          <div>
+            <h3>Jilguero europeo</h3>
+            <p class="sci">Carduelis carduelis</p>
+          </div>
+        </div>
+        <div class="ficha-tags">
+          <span class="tag">Fringílido</span>
+          <span class="tag">Granívoro</span>
+          <span class="tag">Preocupación menor</span>
+        </div>
+        <div class="ficha-grid" style="margin-top: 22px;">
+          <div class="ficha-field">
+            <span class="mono">Tipo de papilla</span>
+            <span class="val">Semillas trituradas mezcladas con papilla de cría para insectívoros (proporción 70/30)</span>
+          </div>
+          <div class="ficha-field">
+            <span class="mono">Peso de referencia (adulto)</span>
+            <span class="val">14–19 g</span>
+          </div>
+          <div class="ficha-field">
+            <span class="mono">Frecuencia de alimentación</span>
+            <span class="val">Cada 20–30 min si es implume</span>
+          </div>
+          <div class="ficha-field">
+            <span class="mono">Cuándo derivar a un CRAS</span>
+            <span class="val">Ala caída, sangrado, o si no gana peso en 48h</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ficha-demo-actions">
+      <a href="guia.html" class="btn">Ver las 50 especies</a>
+      <a href="checklist.html" class="btn btn-outline">Hacer el checklist primero</a>
+    </div>
+  </div>
+</section>
+
+<section class="chat-teaser" id="chat">
+  <div class="wrap">
+    <div>
+      <h2>¿Tienes el ave delante?</h2>
+      <p>Sube una foto para identificar la especie, o pregúntale al chat tus dudas de seguimiento.</p>
+    </div>
+    <div class="cta-group">
+      <a href="identificar.html" class="btn">Identificar por foto</a>
+      <a href="chat.html" class="btn btn-outline" style="background:transparent; color:#fff; border-color:#fff;">Abrir chat</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-row">
+      <p class="mono">AlaViva</p>
+      <p>Proyecto independiente y gratuito</p>
+    </div>
+    <p class="disclaimer">AlaViva ofrece primeros auxilios orientativos, no sustituye a un centro de recuperación de fauna silvestre (CRAS) ni a asesoría veterinaria profesional. En España, la tenencia de fauna silvestre sin autorización está regulada por ley: si el ave necesita ayuda, la meta de esta guía es ayudarte a entregarla a profesionales, no a criarla en casa. Manipula siempre con las manos limpias o guantes.</p>
+    <p class="foot-links"><a href="sobre.html">Sobre AlaViva</a> · <a href="sobre.html#fuentes">Fuentes</a> · <a href="sobre.html#privacidad">Privacidad</a></p>
+  </div>
+</footer>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
+}
+</script>
+<script>
+const navToggle = document.getElementById('navToggle');
+const siteNav = document.querySelector('.site-nav');
+if (navToggle && siteNav) {
+  navToggle.addEventListener('click', () => {
+    const abierto = siteNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(abierto));
+  });
+  // Cierra el menú al tocar cualquier enlace
+  siteNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      siteNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+</script>
+</body>
+</html>
+rios: un volantón sano en el suelo sigue siendo alimentado por sus padres. El checklist te lo aclara en un minuto.</p>
       </div>
       <div class="step">
         <span class="num">02</span>
