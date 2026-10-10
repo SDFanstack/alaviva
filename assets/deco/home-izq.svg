@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 760" fill="none" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+<path d="M-20 300C120 250 260 330 400 280" stroke="#E8C25A" stroke-width="34" opacity="0.14"/>
+<path d="M-20 640C140 590 300 690 440 640" stroke="#7C9A84" stroke-width="28" opacity="0.11"/>
+<g opacity="0.28">
+  <g transform="translate(-110 150) scale(1.9 1.9)" stroke="#7C9A84">
+    <path d="M262 80C258 52 232 38 206 46C182 54 170 78 170 102C168 134 142 170 108 208C88 230 60 250 22 262C62 270 102 258 132 240C164 256 212 244 240 208C262 176 270 134 262 98"/>
+    <path d="M262 80L294 90L262 98"/>
+    <path d="M150 172C178 142 216 136 242 154"/>
+    <path d="M128 206C150 188 178 180 204 186"/>
+    <path d="M232 84m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" fill="#7C9A84"/>
+    <path d="M172 244L172 272M204 234L208 270M166 272L184 272M200 270L220 270"/>
+  </g>
+</g>
+<g opacity="0.2">
+  <path transform="translate(250 620) rotate(-30) scale(2.2)" d="M0 0C10-12 26-12 36 0C26 12 10 12 0 0M0 0L36 0" stroke="#7C9A84"/>
+</g>
+<g opacity="0.2">
+  <path transform="translate(330 680) rotate(15) scale(1.7)" d="M0 0C10-12 26-12 36 0C26 12 10 12 0 0M0 0L36 0" stroke="#7C9A84"/>
+</g>
+</svg>

@@ -146,7 +146,7 @@ ${CSS}
 <meta name="theme-color" content="#2F4A3D">
 <link rel="icon" href="/assets/icons/icon-192.png">
 </head>
-<body>
+<body class="deco-especie">
 
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 

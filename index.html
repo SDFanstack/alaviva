@@ -38,15 +38,7 @@
   .hero p.lede { color: var(--ink-soft); font-size: 1.1rem; max-width: 46ch; margin-bottom: 40px; }
 
   /* --- Portada: líneas de aves detrás del contenido --- */
-  .intro { position: relative; overflow: hidden; }
-  .intro-lineas {
-    position: absolute; top: 0; left: 50%; width: 1440px; height: auto; max-width: none;
-    transform: translateX(-50%); pointer-events: none; z-index: 0; opacity: 1;
-  }
-  .intro .hero, .intro .aviso-legal { position: relative; z-index: 1; }
   @media (min-width: 1180px) { .hero-text { max-width: 700px; margin: 0 auto; } }
-  @media (max-width: 1179px) { .intro-lineas { width: 1100px; } }
-  @media (max-width: 700px) { .intro-lineas { width: 800px; opacity: .8; } }
   .hero .eyebrow { color: #9C5F17; }
   .quick-links { gap: 8px 0; align-items: center; }
   .quick-links li { display: flex; align-items: center; }
@@ -103,7 +95,7 @@
 <meta name="theme-color" content="#2F4A3D">
 <link rel="icon" href="/assets/icons/icon-192.png">
 </head>
-<body>
+<body class="deco-home">
 
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
@@ -130,8 +122,6 @@
 
 <main id="contenido">
 <div class="intro">
-<!-- Decoración: aves dibujadas con línea simple que cruzan por detrás del texto (SVG propio) -->
-<img class="intro-lineas" src="assets/deco/lineas.svg" alt="" aria-hidden="true">
 <section class="hero">
   <div class="wrap">
    <div class="hero-text">
