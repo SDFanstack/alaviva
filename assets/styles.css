@@ -209,7 +209,7 @@ body[class*="deco-"]::before {
 body[class*="deco-"] > header.site,
 body[class*="deco-"] > main,
 body[class*="deco-"] > section,
-body[class*="deco-"] > div:not(.skip-link),
+body[class*="deco-"] > div:not(.skip-link):not(.lightbox-overlay),
 body[class*="deco-"] > footer { position: relative; z-index: 1; }
 @media (max-width: 1100px) { body[class*="deco-"] { --deco-h: 520px; } }
 @media (max-width: 700px)  { body[class*="deco-"]::before { opacity: .55; } body[class*="deco-"] { --deco-h: 420px; } }
